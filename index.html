@@ -20,30 +20,76 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Gavin Dinubilo</a>
+        <a class="navbar-brand" href="#">FT Researcher</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">About</a>
+          <li><a href="#about">About</a>
           </li>
-          <li><a href="#">Goals</a>
+          <li><a href="#plan">Plan</a></li>
+          <li><a href="#wireframe">Wireframe</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container">
+    <div class="jumbotron">
+      <h1>The FT Researcher<br><small>Gavin Dinubilo</small></h1>
+      <a href="#about" class="btn btn-success">Get Started</a>
+    </div>
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <h1 id="about">About</h1>
         <p>
-          This is the starting page for the Pearson Coding Project.
+          This project is for the Pearson Coding Project. The main idea is to create something using the Pearson APIs to enhance student learning. I plan on using Ruby on Rails to create this, seeing as it is the easiest to implement a database, and add a lot to the overall site.
+        </p>
+        <p>
+          This specific project will implement the Financial Times API, and the Dictionary API. The app that I plan to create is to be used for research for student projects, or just overall learning, after looking at the <a href="http://www.ft.com">Financial Times</a> website, and seeing how difficult it is to navigate, but seeing how helpful the content could be for students to use, in their projects, I decided to create an app that will allow students to do just that.
+        </p>
+        <p>
+          As a student I know what is like to find resources for research, especially current ones, the articles that I looked at on <a href="http://www.ft.com">Financial Times</a> all were extremely interesting and I feel that this information could be implemented in a better way, which I plan to do.
         </p>
       </div>
     </div>
+    <div class="row">
+      <div class="col-x2-12 col-sm-8 col-sm-offset-2">
+        <h1 id="plan">Plan</h1>
+        <p>
+          My plan for creating this project is to first implement a way to view the text from all 40,000 articles provided by <a href="http://www.ft.com">Financial Times</a> by adding the id into my own database for faster app speed, otherwise, I would be making multiple requests, and I can provide more options to students to find things this way. 
+        </p>
+        <p>
+          Second I want to implement a way to use the Pearson Dictionary API so that when students are reading through an article and come across a word that they don't understand or don't know, they can simply highlight the word and the app will provide a definition for them, or a list of synonyms. This way students can understand what they are reading about without having to pull out a dictionary, or go to an external website. Along with the Dictionary API I plan to implement a way for to students to cite the website on the page. 
+        </p>       
+        <p>
+          Third I plan on implementing a user system so that students can either upvote or downvote an article, the more upvotes a post has the more likely it is to be found on the front page. This is to showcase popular articles that otherwise would go unlooked if users didn't vote on them. 
+        </p>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-x2-12 col-sm-8 col-sm-offset-2">
+        <h1 id="wireframe">Wireframe</h1>
+        <ul>
+          <li>Landing Page 
+            <ul>
+              <li>Ability to search for articles.</li>  
+              <li>View popular articles.</li>
+              <li>View articles that they have saved as a user.</li>
+            </ul>
+          </li>
+          <li>Article view page
+            <ul>
+              <li>Create a viewing pleasure much like <a href="http://www.medium.com">Medium</a>.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>   
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="js/the.js"></script>
 </body>
 
 </html>
