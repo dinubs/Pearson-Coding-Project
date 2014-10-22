@@ -6,9 +6,9 @@ class Article < ActiveRecord::Base
             
   def self.search(search)
     if search
-      where(['title LIKE ?', "%#{search}%"]).where(['content[1] LIKE ?', "%#{search}%"])
+      where(["title LIKE ?", "%#{search}%"])
     else
-      non
+      none
     end
   end            
 end

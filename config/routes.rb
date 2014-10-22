@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  root "articles#index"
+  root "pages#index"
 
   resources :articles
+  resources :pages
 
   get '/search' => "articles#search"
+  get '/about' => "pages#about"
 
 end

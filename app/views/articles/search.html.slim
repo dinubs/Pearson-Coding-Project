@@ -1,16 +1,19 @@
 
 
-= form_tag search_path, :method => 'get' do
-  p
-    = text_field_tag :search, params[:search]
-    = submit_tag "Search", :name => nil
+= render "search"
 
-- if @articles.count == 0 && params[:search]
+- if @count == 0 && params[:search]
     p 
         | Sorry we couldn't find any articles with that search query, please try again.
+- elsif @count > 100
+    p 
+        | There are a lot of results, we suggest refinings your query.
 
+p 
+  | Total results:
+  = @count
 - @articles.each do |article|
-	h3 = link_to article.title, article_path(article)
+	h3 = link_to article.title, article_path(article.articleId)
 	p  = article.content.first
 
 = will_paginate @articles
