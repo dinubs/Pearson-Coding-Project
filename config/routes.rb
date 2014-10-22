@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  get '/search' => "articles#search"
+
 end

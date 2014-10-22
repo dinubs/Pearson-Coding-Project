@@ -1,7 +1,11 @@
 class ArticlesController < ApplicationController
 
 	def index
-		@page = params[:page]
+		if params[:page]
+			@page = params[:page]	
+		else 
+			@page = 1
+		end
 		@articles = Article.paginate(:page => @page, :per_page => 15)
 		@title = "Articles - "
 	end
@@ -9,6 +13,15 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@title = @article.title
+	end
+	
+	def search
+		if params[:page]
+			@page = params[:page]	
+		else 
+			@page = 1
+		end
+		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => 15)	
 	end
 
 end
