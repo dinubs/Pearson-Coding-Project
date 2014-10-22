@@ -1,0 +1,16 @@
+
+h1 This is the articles page :)
+p 
+	' Current Page: 
+	= @page
+p
+	' We currently have 
+	=' @articles.count
+	| articles provided for you, and ever growing!
+
+- @articles.each do |article|
+	h3 
+		= link_to article.title, article_path(article)
+	p  = article.content.first
+
+= will_paginate @articles
