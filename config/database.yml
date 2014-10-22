@@ -23,8 +23,6 @@ default: &default
 
 development:
   <<: *default
-  database: ftResearcher_development
-  host: localhost
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
