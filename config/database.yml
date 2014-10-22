@@ -22,7 +22,6 @@ default: &default
 development:
   <<: *default
   database: ftResearcher_development
-  adapter: postgresql
   host: localhost
   username: user
 
