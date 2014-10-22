@@ -78,11 +78,7 @@ test:
 #
 production:
   <<: *default
-  # database: ftResearcher_production
-  # username: ftResearcher
-  # password: <%= ENV['FTRESEARCHER_DATABASE_PASSWORD'] %>
-  encoding: SQL_ASCII
-  database: c9
-  username: postgres
-  password: hello
+  database: ftResearcher_production
+  username: ftResearcher
+  password: <%= ENV['FTRESEARCHER_DATABASE_PASSWORD'] %>
   host: <%=ENV['IP']%>
