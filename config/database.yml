@@ -16,13 +16,7 @@
 #
 default: &default
   adapter: postgresql
-  # encoding: unicode
-  # Uncomment the above line, and comment through pool: 5
-  encoding: SQL_ASCII
-  database: c9
-  username: postgres
-  password: hello
-  host: <%=ENV['IP']%>
+  encoding: unicode
   pool: 5
 
 development:
@@ -84,6 +78,11 @@ test:
 #
 production:
   <<: *default
-  database: ftResearcher_production
-  username: ftResearcher
-  password: <%= ENV['FTRESEARCHER_DATABASE_PASSWORD'] %>
+  # database: ftResearcher_production
+  # username: ftResearcher
+  # password: <%= ENV['FTRESEARCHER_DATABASE_PASSWORD'] %>
+  encoding: SQL_ASCII
+  database: c9
+  username: postgres
+  password: hello
+  host: <%=ENV['IP']%>
