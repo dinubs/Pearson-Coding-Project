@@ -1,11 +1,13 @@
 
 div.vertAlign.text-center
-    h1
-       | Search All Articles
-    = render "articles/search"
-    p
-    	=' link_to "About FT Researcher", about_path
-    	' |
-		=' link_to "Search Articles", search_path
-		' |
-		=' link_to "All Articles", articles_path
+	    h1
+	       	' Search over 
+			=' human_num(@count)
+	    	| Articles
+	    = render "articles/search"
+	    p
+	    	=' link_to "About FT Researcher", about_path
+	    	' |
+			=' link_to "Search Articles", search_path
+			' |
+			=' link_to "All Articles", articles_path

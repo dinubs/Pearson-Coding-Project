@@ -1,21 +1,26 @@
 
-div.col-sm-12
-	h3 Search
-	= render "search"
-	= will_paginate @articles, :page_links => false, :next_label => "next", :previous_label => "prev"
-
-- if @count == 0 && params[:search]
+div.row
+  div.col-sm-12
+  	h3 Search
+  	= render "search"
+  	= will_paginate @articles, :page_links => false, :next_label => "next", :previous_label => "prev"
+div.row
+  div.col-sm-12
+    - if @count == 0 && params[:search]
+        p 
+            | Sorry we couldn't find any articles with that search query, please try again.
+    - elsif @count > 100
+        p 
+            | There are a lot of results, we suggest refinings your query.
+div.row
+  div.col-sm-12
     p 
-        | Sorry we couldn't find any articles with that search query, please try again.
-- elsif @count > 100
-    p 
-        | There are a lot of results, we suggest refinings your query.
+      | Total results:
+      = human_num(@count)
+    - @articles.each do |article|
+    	h3 = link_to article.title, article_path(article.articleId)
+    	p  = article.content.first
 
-p 
-  | Total results:
-  = @count
-- @articles.each do |article|
-	h3 = link_to article.title, article_path(article.articleId)
-	p  = article.content.first
-
-= render "pagination"
+div.row
+  div.col-sm-12
+    = render "pagination"
