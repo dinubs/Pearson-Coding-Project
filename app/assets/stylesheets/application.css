@@ -32,6 +32,16 @@ body { margin-top: 70px; padding-bottom: 70px;}
   background-size: cover;
   margin-top: 0;padding: 0;
 }
+  .relax {
+    min-height: 100% !important;
+    color: white;
+    /*background:  url(http://media0.giphy.com/media/Dkd9d0Qn9ZoAw/giphy.gif) no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-top: 0;padding: 0;
+  }
 
 
 .vertAlign {
@@ -41,6 +51,12 @@ body { margin-top: 70px; padding-bottom: 70px;}
   .vertAlign a {
     color: #3e3f3a;
   }
+
+.botAlign {
+  height: 20%;
+  position: absolute;
+  top: 40%;
+}
 
 li {
 	list-style-type: circle;

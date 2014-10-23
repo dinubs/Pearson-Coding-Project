@@ -6,5 +6,9 @@ class PagesController < ApplicationController
    end
    def about
    end
+   def relax
+   		@body = "relax"
+   		@title = "Chill Bro - "
+   end
     
 end
