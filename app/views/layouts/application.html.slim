@@ -2,6 +2,7 @@ html
 	head
 	  title= "#{@title} FT Researcher"
 	  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+	  = javascript_include_tag src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
 	  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
 	  = csrf_meta_tags
 	body class=@body
@@ -31,7 +32,6 @@ html
 				div.col-xs-12.col-sm-8.col-sm-offset-2
 					= yield 
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 
