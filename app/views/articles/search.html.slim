@@ -1,6 +1,8 @@
 
-
-= render "search"
+div.col-sm-12
+	h3 Search
+	= render "search"
+	= will_paginate @articles, :page_links => false, :next_label => "next", :previous_label => "prev"
 
 - if @count == 0 && params[:search]
     p 

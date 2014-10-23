@@ -12,6 +12,7 @@
 div.col-sm-12
 	h3 Search
 	= render "search"
+	= will_paginate @articles, :page_links => false, :next_label => "next", :previous_label => "prev"
 
 div.col-sm-12
 	- @articles.each do |article|
