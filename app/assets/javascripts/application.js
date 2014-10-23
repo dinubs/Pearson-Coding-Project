@@ -17,7 +17,7 @@ $(document).on ('ready page:load',function(){
 	$('p').linkify();
 	if($("body").hasClass("relax")) {
 		var rand = Math.ceil(Math.random() * 3103);
-		$.ajax({url:"http://api.giphy.com/v1/gifs/search?q=puppies&api_key=dc6zaTOxFJmzC&limit=3203&offset=0",success:function(data){
+		$.ajax({url:"https://api.giphy.com/v1/gifs/search?q=puppies&api_key=dc6zaTOxFJmzC&limit=3203&offset=0",success:function(data){
 			var rand = Math.ceil(Math.random() * 100);
 			console.log(data.data[rand].images.original.url);
 			$(".relax").css("background", "url(" + data.data[rand].images.original.url + ") no-repeat center center fixed");
