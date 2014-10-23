@@ -13,6 +13,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(window).on('load', function () {
-  $('p').linkify();
-});
+$('p').linkify();
