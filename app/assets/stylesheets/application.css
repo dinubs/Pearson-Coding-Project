@@ -38,6 +38,9 @@ body { margin-top: 70px; padding-bottom: 70px;}
   height: 20%;
   margin-top: 40%;
 }
+  .vertAlign a {
+    color: #3e3f3a;
+  }
 
 li {
 	list-style-type: circle;
