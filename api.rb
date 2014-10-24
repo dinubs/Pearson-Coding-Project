@@ -12,7 +12,6 @@ def publish_to_api(articleId)
 	# puts tempStuff["id"]
 	Article.create :articleId => tempStuff["id"], :title => tempStuff["result"]["headline"], :content => tempStuff["result"]["text"]
 rescue JSON::ParserError => e
-	system "clear" or system "cls"
 	puts "Sleeping for a bit zzz"
 	sleep 30
   	retry
@@ -23,7 +22,6 @@ def getArticles(offset)
 	data = Net::HTTP.get(uri)
 	JSON.parse(data)
 rescue JSON::ParserError
-	system "clear" or system "cls"
 	puts "Sleeping for a bit zzz"
 	sleep 30
 	retry
@@ -47,6 +45,8 @@ for i in 0..numRounds
 	results = stuff["results"]
 	results.each do |r|
 		publish_to_api(r["id"])
+		system "clear" or system "cls"
+		puts "#{(curOffset / numRounds )}%"
 	end
 	curOffset = curOffset + offset
 	system "clear" or system "cls"
