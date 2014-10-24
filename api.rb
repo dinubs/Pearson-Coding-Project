@@ -1,6 +1,8 @@
 require 'json'
 require 'net/http'
 
+
+system "clear" or system "cls"
 def publish_to_api(articleId)
   	tempUri = URI("http://api.pearson.com:80/v2/ft/articles/#{articleId}")
 	tempData = Net::HTTP.get(tempUri)
@@ -48,5 +50,5 @@ for i in 0..numRounds
 	end
 	curOffset = curOffset + offset
 	system "clear" or system "cls"
-	puts (curOffset / numRounds ) + "%"
+	puts "#{(curOffset / numRounds )}%"
 end
