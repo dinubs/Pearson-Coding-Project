@@ -50,5 +50,5 @@ for i in 0..numRounds
 	end
 	curOffset = curOffset + offset
 	system "clear" or system "cls"
-	puts "#{(curOffset / numRounds )}%"
+	puts "#{(i / numRounds ) * 100}%"
 end
