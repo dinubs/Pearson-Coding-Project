@@ -5,11 +5,12 @@ def publish_to_api(articleId)
   	tempUri = URI("http://api.pearson.com:80/v2/ft/articles/#{articleId}")
 	tempData = Net::HTTP.get(tempUri)
 	tempStuff = JSON.parse(tempData)
-	puts tempStuff["result"]["headline"]
-	puts tempStuff["result"]["text"]
-	puts tempStuff["id"]
+	# puts tempStuff["result"]["headline"]
+	# puts tempStuff["result"]["text"]
+	# puts tempStuff["id"]
 	Article.create :articleId => tempStuff["id"], :title => tempStuff["result"]["headline"], :content => tempStuff["result"]["text"]
 rescue JSON::ParserError => e
+	system "clear" or system "cls"
 	puts "Sleeping for a bit zzz"
 	sleep 30
   	retry
@@ -20,6 +21,7 @@ def getArticles(offset)
 	data = Net::HTTP.get(uri)
 	JSON.parse(data)
 rescue JSON::ParserError
+	system "clear" or system "cls"
 	puts "Sleeping for a bit zzz"
 	sleep 30
 	retry
@@ -45,5 +47,6 @@ for i in 0..numRounds
 		publish_to_api(r["id"])
 	end
 	curOffset = curOffset + offset
-	puts curOffset
+	system "clear" or system "cls"
+	puts (curOffset / numRounds ) + "%"
 end
