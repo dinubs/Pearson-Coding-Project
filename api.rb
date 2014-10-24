@@ -46,9 +46,9 @@ for i in 0..numRounds
 	results.each do |r|
 		publish_to_api(r["id"])
 		system "clear" or system "cls"
-		puts "#{(curOffset / total ) * 100}%"
+		puts "#{(i / numRounds ) * 100}%"
 	end
 	curOffset = curOffset + offset
 	system "clear" or system "cls"
-	puts "#{(curOffset)}"
+	puts "Current Offset: #{(curOffset)}"
 end
