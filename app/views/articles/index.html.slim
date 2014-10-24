@@ -17,7 +17,7 @@ div.col-sm-12
 
 div.col-sm-12
 	- @articles.each do |article|
-		h3 = link_to article.title, article_path(article.articleId)
+		h3 = link_to article.title, article_show_path(article.articleId)
 		p  = article.content.first
 
 = render "pagination"

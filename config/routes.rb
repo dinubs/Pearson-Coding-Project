@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/about' => "pages#about"
   get '/relax' => "pages#relax"
 
+  get '/:id' => "articles#show", :as => "article_show"
+
 end
