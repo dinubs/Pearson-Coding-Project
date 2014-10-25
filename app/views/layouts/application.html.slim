@@ -27,13 +27,16 @@ html
 		          			= link_to "All Articles", articles_path
 		          		li	
 		          			= link_to "About", about_path
-		          	ul.nav.navbar-nav.navbar-right
-		          		- if current_user
+		          	- if current_user	
+		          		ul.nav.navbar-nav.navbar-right
 		          			li
 		          				= link_to current_user.email, me_path
 		          			li
 		          				= link_to "Logout", logout_path
-						- else	
+		          		div.navbar-right
+		          			= link_to "Add New Link", new_link_path, :class => "btn btn-sm btn-success nav-link"
+					-else 
+						ul.nav.navbar-nav.navbar-right
 							li	
 			          			= link_to "Sign Up", signup_path
 			          		li	
