@@ -19,16 +19,7 @@ div.row
             = human_num(@count)
         - @articles.each do |article|
     	    h3 = link_to article.title, article_show_path(article.articleId)
-            - i = 1
-            - article.content.each do |content|
-                - if content.include? " #{params[:search]} "
-                    b 
-                        ' Found in the 
-                        =' i.to_words ordinal: true
-                        | paragraph.
-                    p = content
-                    - break
-                - i = i.next
+            p = article.content.first
 
 div.row
   div.col-sm-12
