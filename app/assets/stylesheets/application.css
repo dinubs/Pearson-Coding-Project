@@ -58,6 +58,11 @@ body { margin-top: 70px; padding-bottom: 70px;}
   top: 40%;
 }
 
+.highlight {
+  background-color: #B7F55D;
+  padding: 2px;
+}
+
 li {
 	list-style-type: circle;
 }
