@@ -1,0 +1,39 @@
+h1
+	' Welcome
+	= @user.email
+	' .
+p 
+	| Hope you're ready to research.
+
+h3
+	| Links
+p
+	| These are the citations you would use in your works cited
+
+- if @links.count > 0
+	- @links.each_with_index do |link, index|
+		div.panel.panel-default
+			div.panel-heading
+				= link_to link.article_title, link.url
+				span.pull-right 
+					- text = icon('trash', '', class: 'trash')
+					/ = link_to text, link_path(link), :method => :put
+					= button_to link_path(link), :class => "btn btn-sm btn-danger", method: :delete do
+						= text
+				span.pull-right
+					= link_to edit_link_path(link), :class => "btn btn-sm btn-info" do
+						= icon('pencil', '', class: 'edit')
+			div.panel-body
+			 | "
+			 = link.article_title
+			 ' ."
+			 = link.website_title
+			 ' . Web.
+			 = link.date_accessed.strftime('%B')
+			 ' ,
+			 =' link.date_accessed.year
+			 | &lt;
+			 = link.url
+			 | &gt;
+- else
+	= link_to "You Need Some Links!", new_link_path, :class => "btn btn-sm btn-success"

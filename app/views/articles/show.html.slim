@@ -4,3 +4,5 @@ h1 = @article.title
 
 - @article.content.each do |p|
 	p = p
+
+= button_to 'Add this Article to your Links', {:controller => "links", :action => "create", :link => {:article_title => @article.title, :website_title => "FT Researcher", :url => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", :date_accessed => Date.today}} , :method=>:post, :class => "btn btn-sm btn-success"

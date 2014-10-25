@@ -1,0 +1,11 @@
+= simple_form_for(@user, html: { class: 'form-vertical' }) do |f|
+	.form-group
+		= f.input :email, :placeholder => "Email", :input_html => { :class => "form-control", :label => "" }
+	.form-group
+		= f.input :password, :placeholder => "Password", :input_html => { :class => "form-control" }
+	.form-group
+		= f.submit :class =>"btn btn-sm btn-success", :value => "Sign Up"
+
+p
+	' Already have an account?
+	= link_to "Login", login_path

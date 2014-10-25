@@ -19,6 +19,8 @@ gem 'simple_form'
 gem 'bourbon'
 gem 'neat'
 gem 'numbers_and_words'
+gem 'bootstrap-datepicker-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 gem 'slim-rails'
 gem 'will_paginate', '~> 3.0'

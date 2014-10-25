@@ -13,6 +13,7 @@
 //= require jquery
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-datepicker
 
 $(document).on ('ready page:load',function(){
 	$('p').linkify();
