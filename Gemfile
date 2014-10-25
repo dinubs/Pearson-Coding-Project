@@ -18,6 +18,7 @@ gem 'simple_form'
 
 gem 'bourbon'
 gem 'neat'
+gem 'numbers_and_words'
 
 gem 'slim-rails'
 gem 'will_paginate', '~> 3.0'

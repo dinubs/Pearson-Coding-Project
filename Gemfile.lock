@@ -64,6 +64,9 @@ GEM
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
+    numbers_and_words (0.10.0)
+      activesupport
+      i18n
     oauth (0.4.7)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
@@ -154,6 +157,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   neat
+  numbers_and_words
   pg
   rails (= 4.1.6)
   rails_12factor
