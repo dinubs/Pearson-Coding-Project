@@ -68,6 +68,7 @@ GEM
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
+    newrelic_rpm (3.9.6.257)
     numbers_and_words (0.10.0)
       activesupport
       i18n
@@ -163,6 +164,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   neat
+  newrelic_rpm
   numbers_and_words
   pg
   rails (= 4.1.6)

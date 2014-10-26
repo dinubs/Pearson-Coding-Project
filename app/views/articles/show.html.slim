@@ -23,3 +23,9 @@ div.panel.panel-default
 			 | &lt;
 			 = "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
 			 | &gt;
+javascript:
+	$( "p" )
+  	.mouseup(function() {
+  		console.log($.selection());
+  	});
+	
