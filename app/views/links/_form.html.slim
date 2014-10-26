@@ -1,11 +1,11 @@
 = simple_form_for(@link, html: { class: 'form-vertical' }) do |f|
 	.form-group
-		= f.input :article_title, :placeholder => "Article Title", :label => "Article Title", :input_html => { :class => "form-control"}
+		= f.input :article_title, :placeholder => "Article Title", :label => "Article Title", :input_html => { :class => "form-control", :value => params[:article_title]}
 	.form-group
-		= f.input :website_title, :placeholder => "Website Title", :label => "Website Title", :input_html => { :class => "form-control" }
+		= f.input :website_title, :placeholder => "Website Title", :label => "Website Title", :input_html => { :class => "form-control", :value => params[:website_title] }
 	.form-group
-		= f.input :url, :placeholder => "Website URL", :label => "Website URL", :input_html => { :class => "form-control" }
+		= f.input :url, :placeholder => "Website URL", :label => "Website URL", :input_html => { :class => "form-control", :value => params[:url] }
 	.form-group
-		= f.input :date_accessed, :placeholder => "Date Accessed", :label => "Date Accessed", :input_html => { :class => "" }
+		= f.input :date_accessed, :placeholder => "Date Accessed", :label => "Date Accessed", :input_html => { :class => "", :value => params[:date_accessed] }
 	.form-group
 		= f.submit :class =>"btn btn-sm btn-success", :value => "Create New Link"

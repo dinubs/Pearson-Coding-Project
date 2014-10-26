@@ -120,7 +120,7 @@ li {
   text-align: center;
 }
 
-.trash, .edit {
+.trash, .edit, .save {
   font-size: 16px;
   margin:0 10px;
 }
@@ -129,16 +129,14 @@ li {
   color: #29abe0;
   color: #bce8f1;
 }
-  .edit:hover {
-    color: #29abe0;
-  }
 
 .trash {
   color: #ebccd1;
 }
-  .trash:hover {
-    color: #d9534f;
-  }
+
+.save {
+  color: #5D7D30;
+}
 
 span .btn {
   margin: 0 10px;

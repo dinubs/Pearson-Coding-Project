@@ -26,7 +26,16 @@ class LinksController < ApplicationController
   	end
 
   	def edit  
-    	@link = Link.find(params[:id])  
+    	begin
+    		@link = Link.find(params[:id]) 
+    		if @link.user != current_user
+    			flash[:danger] = "You don't have access to that link!"
+    			redirect_to root_path
+    		end
+  		rescue ActiveRecord::RecordNotFound
+    		flash[:danger] = "That link doesn't exist!"
+    		redirect_to root_path
+  		end
   	end  
   
   	def update  
