@@ -11,9 +11,7 @@ class Article < ActiveRecord::Base
              OR lower(content[1]) LIKE lower('% #{search} %') 
              OR lower(content[2]) LIKE lower('% #{search} %') 
              OR lower(content[3]) LIKE lower('% #{search} %')
-             OR lower(content[4]) LIKE lower('% #{search} %')
-             OR lower(content[5]) LIKE lower('% #{search} %')
-             OR lower(content[6]) LIKE lower('% #{search} %')")
+             OR lower(content[4]) LIKE lower('% #{search} %')")
     else
       none
     end
