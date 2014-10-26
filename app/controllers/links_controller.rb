@@ -1,6 +1,10 @@
 class LinksController < ApplicationController
 
 	def new
+		if !current_user
+			flash[:warning] = "You need to login or sign up first"
+			redirect_to login_path 
+		end
 		@link = Link.new
 	end
 	def create
