@@ -1,1 +1,11 @@
-= render "form"
+= simple_form_for(@link, html: { class: 'form-vertical' }) do |f|
+	.form-group
+		= f.input :article_title, :placeholder => "Article Title", :label => "Article Title", :input_html => { :class => "form-control"}
+	.form-group
+		= f.input :website_title, :placeholder => "Website Title", :label => "Website Title", :input_html => { :class => "form-control"}
+	.form-group
+		= f.input :url, :placeholder => "Website URL", :label => "Website URL", :input_html => { :class => "form-control"}
+	.form-group
+		= f.input :date_accessed, :placeholder => "Date Accessed", :label => "Date Accessed", :input_html => { :class => ""}
+	.form-group
+		= f.submit :class =>"btn btn-sm btn-success", :value => "Create New Link"

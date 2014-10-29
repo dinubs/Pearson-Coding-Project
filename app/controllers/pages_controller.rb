@@ -3,8 +3,10 @@ class PagesController < ApplicationController
    def index 
        @body = "home"
        @count = Article.count
+       @title = "Home - "
    end
    def about
+     @title = "About FT Researcher - "
    end
    def relax
    		@body = "relax"

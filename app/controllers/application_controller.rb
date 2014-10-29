@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  @title = "Home -"
 
  	def human_num(number,rounding=0,delimiter=',',separator='.')
       value = number.to_i.ceil

@@ -19,10 +19,11 @@ class ArticlesController < ApplicationController
 	def search
 		if params[:page]
 			@page = params[:page]	
+  		@title = "Search Results - "
 		else 
 			@page = 1
+      @title = "Search - "
 		end
-		@title = "Search Results - "
 		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => 15)	
 		@count = @articles.count
 	end

@@ -2,10 +2,11 @@ class LinksController < ApplicationController
 
 	def new
 		if !current_user
-			flash[:warning] = "You need to login or sign up first"
+			flash[:warning] = "You need to <b>#{ActionController::Base.helpers.link_to "login", login_path}</b> or <b>#{ActionController::Base.helpers.link_to "sign up", signup_path}</b> first".html_safe
 			redirect_to login_path 
 		end
 		@link = Link.new
+    @title = "New Link - "
 	end
 	def create
     	@user = current_user
@@ -27,6 +28,7 @@ class LinksController < ApplicationController
 	    @link.destroy
 
 	    redirect_to me_path
+      
   	end
 
   	def edit  
@@ -36,24 +38,27 @@ class LinksController < ApplicationController
     			flash[:danger] = "You don't have access to that link!"
     			redirect_to root_path
     		end
+        @title = "Edit #{@link.article_title} - "
   		rescue ActiveRecord::RecordNotFound
     		flash[:danger] = "That link doesn't exist!"
     		redirect_to root_path
   		end
   	end  
-  
   	def update  
     	@link = Link.find(params[:id])  
-    	if @product.update_attributes(permitted_params)  
-      		flash[:success] = "Link: #{@link.article_title} has been successfully updated!"  
-    	end  
+    	if @link.update_attributes(permitted_params)  
+      		flash[:success] = "Link: #{@link.article_title} has been successfully updated!"   
+          redirect_to me_path         
+      else
+        redirect_to :back
+      end        
   	end  
 private
   	def permitted_params
     	params.require(:link).permit(:article_title,
-        	          				 :website_title,
-        	  		  				 :date_accessed,
-        	          				 :url)
+        	          				       :website_title,
+                                   :date_accessed,
+                                   :url)
   	end
 
 end
