@@ -12,17 +12,7 @@ div.panel.panel-default
 					- text = icon('save', '', class: 'save')
 					= link_to text, new_link_path(:article_title => @article.title, :website_title => "FT Researcher", :url => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", :date_accessed => Date.today) , :method=>:post, :class => "btn btn-sm btn-success"
 			div.panel-body
-			 | "
-			 = @article.title
-			 ' ."
-			 ' FT Researcher
-			 ' . Web.
-			 = Date.today.strftime("%B")
-			 ' ,
-			 =' Date.today.year
-			 | &lt;
-			 = "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
-			 | &gt;
+				= citation(@article.title, "FT Researcher", Date.today, "#{request.protocol}#{request.host_with_port}#{request.fullpath}")
 javascript:
 	$( "p" )
   	.mouseup(function() {

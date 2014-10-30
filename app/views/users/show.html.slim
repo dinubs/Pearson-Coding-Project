@@ -24,16 +24,6 @@ p
 					= link_to edit_link_path(link), :class => "btn btn-sm btn-info" do
 						= icon('pencil', '', class: 'edit')
 			div.panel-body
-			 | "
-			 = link.article_title
-			 ' ."
-			 = link.website_title
-			 ' . Web.
-			 = link.date_accessed.strftime('%B')
-			 ' ,
-			 =' link.date_accessed.year
-			 | &lt;
-			 = link.url
-			 | &gt;
+				= citation(link.article_title, link.website_title, link.date_accessed, link.url)
 - else
 	= link_to "You Need Some Links!", new_link_path, :class => "btn btn-sm btn-success"

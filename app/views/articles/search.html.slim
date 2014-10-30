@@ -17,7 +17,7 @@ div.row
             ' Total results:
             = human_num(@count)
         - @articles.each do |article|
-    	    h3 = link_to article.title, article_show_path(article.articleId)
+    	    h3 = link_to article.title, article_show_path(article)
             p = article.content.first
 
 .pagination-container
