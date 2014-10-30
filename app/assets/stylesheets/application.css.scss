@@ -31,6 +31,11 @@ body { margin-top: 70px; padding-bottom: 70px;}
   -o-background-size: cover;
   background-size: cover;
   padding: 0;
+	position:fixed;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
 }
   .relax {
     min-height: 100% !important;
@@ -41,6 +46,11 @@ body { margin-top: 70px; padding-bottom: 70px;}
     -o-background-size: cover;
     background-size: cover;
     margin-top: 0;padding: 0;
+		position:fixed;
+		top:0;
+		left:0;
+		height:100%;
+		width:100%;
   }
 
 

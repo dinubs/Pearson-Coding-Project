@@ -6,7 +6,8 @@ html
 	  = javascript_include_tag src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
 	  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
 	  = csrf_meta_tags
-	body class=@body
+	body 
+		div class=@body
 	
 		nav.navbar.navbar-default.navbar-fixed-top role="navigation" 
 			.container
@@ -41,7 +42,7 @@ html
 			          			= link_to "Sign Up", signup_path
 			          		li	
 			          			= link_to "Login", login_path
-		div.container
+		div.container#primary-content
 			div.row
 				div.col-xs-12.col-sm-8.col-sm-offset-2
 					- if flash.count > 0

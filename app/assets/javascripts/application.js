@@ -36,3 +36,19 @@ $(document).on ('ready page:load',function(){
   		})
 	}
 });
+
+$.fn.exists = function(){
+    return $( ':not(' + this.selector + ')' ).length < $( '*' ).length;
+}
+document.addEventListener('page:change', function() {
+	if($(".home").length) {
+		document.getElementsByClassName("home")[0].className += ' animated fadeIn';
+	}
+  document.getElementById('primary-content').className += ' animated fadeIn';
+});
+document.addEventListener('page:fetch', function() {
+	if($(".home").length) {	
+		document.getElementsByClassName("home")[0].className += ' animated fadeOut';
+	}
+	document.getElementById('primary-content').className += ' animated fadeOut';
+});
