@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     	if user  
       		redirect_back_or_to me_path, :success => "Logged in!"  
     	else  
-      		flash.now.alert = "Email or password was invalid."  
+      		flash[:danger] = "Email or password was invalid."  
+          redirect_to :back
 		end  
 	end  
 
