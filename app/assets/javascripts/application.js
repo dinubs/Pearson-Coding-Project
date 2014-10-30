@@ -22,6 +22,9 @@ document.addEventListener('page:change', function() {
 	if($(".home").length) {
 		document.getElementsByClassName("home")[0].className += ' animated fadeIn';
 	}
+	if($(".relax").length) {
+		document.getElementsByClassName("relax")[0].className += ' animated fadeIn';
+	}
   document.getElementById('primary-content').className += ' animated fadeIn';
 	$('p').linkify();
 	if($(".relax").exists()) {
@@ -47,6 +50,9 @@ document.addEventListener('page:change', function() {
 document.addEventListener('page:fetch', function() {
 	if($(".home").length) {	
 		document.getElementsByClassName("home")[0].className += ' animated fadeOut';
+	}
+	if($(".relax").length) {
+		document.getElementsByClassName("relax")[0].className += ' animated fadeIn';
 	}
 	document.getElementById('primary-content').className += ' animated fadeOut';
 });
