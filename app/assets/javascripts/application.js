@@ -29,10 +29,8 @@ document.addEventListener('page:change', function() {
 	$('p').linkify();
 	if($(".relax").exists()) {
 		var rand = Math.floor(Math.random() * 3103);
-		console.log("YES");
 		$.ajax({url:"https://api.giphy.com/v1/gifs/search?q=puppies&api_key=dc6zaTOxFJmzC&limit=3203&offset=0",success:function(data){
 			var rand = Math.floor(Math.random() * 100);
-			console.log(data.data[rand].images.original.url);
 			$(".relax").css("background", "url(" + data.data[rand].images.original.url + ") no-repeat center center fixed");
 			$(".relax").css("background-size", "cover");
   		}});
@@ -40,7 +38,6 @@ document.addEventListener('page:change', function() {
     		var rand = Math.floor(Math.random() * 3103);
 			$.ajax({url:"https://api.giphy.com/v1/gifs/search?q=puppies&api_key=dc6zaTOxFJmzC&limit=3203&offset=0",success:function(data){
 				var rand = Math.floor(Math.random() * 100);
-				console.log(data.data[rand].images.original.url);
 				$(".relax").css("background", "url(" + data.data[rand].images.original.url + ") no-repeat center center fixed");
 				$(".relax").css("background-size", "cover");
   			}});
