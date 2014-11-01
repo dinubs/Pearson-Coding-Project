@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 			@page = 1
       @title = "Search - "
 		end
-		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => 15)	
+		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => 15).uniq
 		@count = @articles.count
 	end
 	
