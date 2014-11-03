@@ -30,4 +30,4 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm', group: :production
 
-ruby "2.1.1"
+ruby "2.0.0"
