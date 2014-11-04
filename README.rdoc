@@ -1,6 +1,6 @@
 == README
 
-Link: https://pearson-coding-project-c9-gavindinubilo.c9.io
+[ ![Codeship Status for gavindinubilo/Pearson-Coding-Project](https://codeship.io/projects/1e697e50-4690-0132-21e0-02b954c1a866/status)](https://codeship.io/projects/45358)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
