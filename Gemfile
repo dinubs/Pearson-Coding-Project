@@ -15,6 +15,7 @@ gem 'spring',        group: :development
 
 gem 'sorcery'
 gem 'simple_form'
+gem 'google-analytics-rails'
 
 gem 'bourbon'
 gem 'neat'
