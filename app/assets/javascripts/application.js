@@ -18,6 +18,9 @@
 $.fn.exists = function(){
     return $( ':not(' + this.selector + ')' ).length < $( '*' ).length;
 }
+
+Turbolinks.pagesCached(0);
+
 document.addEventListener('page:change', function() {
 	if($(".home").length) {
 		document.getElementsByClassName("home")[0].className += ' animated fadeIn';

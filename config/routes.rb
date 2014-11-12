@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :links
 
+  get '/random' => "articles#random"
   get '/:id' => "articles#show", :as => "article_show"
 
 end

@@ -3,6 +3,7 @@ class LinksController < ApplicationController
 	def new
 		if !current_user
 			flash[:warning] = "You need to <b>#{ActionController::Base.helpers.link_to "login", login_path}</b> or <b>#{ActionController::Base.helpers.link_to "sign up", signup_path}</b> first".html_safe
+      session[:return_to_url] = request.original_url
 			redirect_to login_path 
 		end
 		@link = Link.new

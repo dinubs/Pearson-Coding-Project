@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
 
   has_many :links
 
-  validates :email, presence: true
+  validates :email, :password, presence: true
 end

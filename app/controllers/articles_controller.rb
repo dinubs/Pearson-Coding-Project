@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 		else 
 			page = 1
 		end
-		@articles = Article.paginate(:page => page, :per_page => 15)
+		@articles = Article.order("RANDOM()").paginate(:page => page, :per_page => 15)
 		@page = page
 		@title = "Articles - "
 	end
@@ -27,5 +27,10 @@ class ArticlesController < ApplicationController
 		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => 15).uniq
 		@count = @articles.count
 	end
+  
+  def random 
+    @art = Article.order("RANDOM()").first
+    redirect_to article_path(@art)
+  end
 	
 end
