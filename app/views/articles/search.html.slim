@@ -17,15 +17,25 @@ div.row
             ' Total results:
             = human_num(@count)
         - @articles.each do |article|
-					h3 = link_to article.title, article_show_path(article)
-					
-					- article.content.each do |cont|
-						- if cont.downcase[" #{params[:search]} ".downcase]
-							p = cont
-							- break
+					.row 
+						.col-sm-10
+							h3 = link_to article_show_path(article)
+								= article.title
+						.col-sm-2
+							.pull-right.index-vote-count
+								.btn-group role="group" aria-label="..."
+									- text = icon('thumbs-up', '', class: 'save')
+									=' link_to like_article_path(article), :method => :put, :class => "btn btn-sm btn-info"
+										= text
+										= article.votes_for.size
+						.col-sm-12.content
+							- article.content.each do |cont|
+								- if cont.downcase[" #{params[:search]} ".downcase]
+									p = cont
+									- break
 
 .pagination-container
  	= render "pagination"
 
 javascript:
-  $("p, a ").highlight("#{params[:search]}", { wordsOnly: true });
+  $(".content p, a ").highlight("#{params[:search]}", { wordsOnly: true });

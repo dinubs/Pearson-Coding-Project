@@ -6,9 +6,16 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-  resources :articles
+  resources :articles do
+      member do
+        get "like", to: "articles#vote"
+        # Only uncomment below line if downvoting is implemented
+        get "dislike", to: "articles#downvote"
+      end
+    end
   resources :pages
 
+  get "/randomize", to: "articles#randomize"
   get '/search' => "articles#search"
   get '/about' => "pages#about"
   get '/relax' => "pages#relax"

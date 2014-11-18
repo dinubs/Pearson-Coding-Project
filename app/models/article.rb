@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
             :content, 
             presence: true
             
+  acts_as_votable
+       
   def self.search(search)
     if search
       # where(["title LIKE ? OR content[0] LIKE ?", "%#{search}%", "%#{search}%"])

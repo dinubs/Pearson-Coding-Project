@@ -1,0 +1,36 @@
+div.row
+	div.col-sm-12
+		- if @page == 1 or params[:page] == "1"
+			h1.text-center This is the FT Researcher
+			p.text-center
+				' Your source for researching about anything related to the economy. All the articles are provided by
+				= link_to "Financials Times", "http://www.ft.com"
+				' .
+				' We currently have 
+				=' human_num(@articles.count)
+				| articles provided for you, and ever growing!
+
+div.col-sm-12
+	h3 Search
+	= render "search"
+
+div.col-sm-12
+	- @articles.each do |article|
+		.row 
+			.col-sm-10
+				h3 = link_to article_show_path(article)
+					= article.title
+			.col-sm-2
+				.pull-right.index-vote-count
+					.btn-group role="group" aria-label="..."
+						- size = article.cached_votes_score
+						- if size >= 0 
+							- thumb = icon('thumbs-up', '', class: 'save')
+						- else
+							- thumb = icon('thumbs-down', '', class: 'save')							
+						= thumb
+						= (article.get_likes.size - article.get_dislikes.size)
+			.col-sm-12
+				p  = article.content.first
+.text-center
+		= render "pagination"

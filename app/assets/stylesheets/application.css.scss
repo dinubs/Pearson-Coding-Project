@@ -148,6 +148,10 @@ span .btn {
   margin: 0 10px;
 	margin-top: -4px;
 }
+span .btn-group .btn {
+	margin: 0;
+	margin-top: -4px;
+}
 
 span .btn:hover {
 	margin-top: -3px;
@@ -160,7 +164,9 @@ span .btn:hover {
   margin-top: 14px;
 }
 
-
+.index-vote-count {
+	padding-top: 20px;
+}
 
 
 

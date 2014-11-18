@@ -1,0 +1,18 @@
+- thumbUp = icon('thumbs-up')
+- thumbDown = icon('thumbs-down')
+- if !current_user or !current_user.voted_for? article
+	=' link_to like_article_path(article), :method => :put, :class => "btn btn-success"
+		= thumbUp
+	.btn.btn-default.btn-sm.disabled = article.cached_votes_score
+	=' link_to dislike_article_path(article), :method => :put, :class => "btn btn-danger"
+		= thumbDown
+- elsif current_user and current_user.voted_up_on? article
+	.btn.btn-default.disabled = thumbUp
+	.btn.btn-default.btn-sm.disabled = article.cached_votes_score
+	=' link_to dislike_article_path(article), :method => :put, :class => "btn btn-danger"
+		= thumbDown
+- else
+	=' link_to like_article_path(article), :method => :put, :class => "btn btn-success"
+		= thumbUp
+	.btn.btn-default.btn-sm.disabled = article.cached_votes_score
+	.btn.btn-default.disabled = thumbDown

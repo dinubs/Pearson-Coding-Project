@@ -1,7 +1,4 @@
-
-
 h1 = @article.title
-
 - @article.content.each do |p|
 	p = p
 
@@ -9,6 +6,8 @@ div.panel.panel-default
 			div.panel-heading
 				' Citation for Works Cited
 				span.pull-right 
+					.btn-group role="group" aria-label="..."
+						= render "voteButtons", :article => @article
 					- text = icon('save', '', class: 'save')
 					= link_to text, new_link_path(:article_title => @article.title, :website_title => "FT Researcher", :url => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", :date_accessed => Date.today) , :method=>:post, :class => "btn btn-sm btn-success"
 			div.panel-body
