@@ -76,7 +76,7 @@ document.addEventListener('page:change', function() {
 		if (window.getSelection) {
 	        var sel = window.getSelection();
 	        if (sel.rangeCount) {
-	        	var text = sel.toString().split(" ")[0].replace(/[|&;$%@"<>()+,]/g, "");
+	        	var text = sel.toString().split(" ")[0].replace(/[|&;$%@"'<>()+,]/g, "");
 	            var range = sel.getRangeAt(0).cloneRange();
 	            span.id = text;
 	            span.setAttribute("title", text);
