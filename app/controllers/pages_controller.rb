@@ -6,7 +6,7 @@ class PagesController < ApplicationController
        @title = "Home - "
    end
    def about
-     @title = "About FT Researcher - "
+     @title = "About Cabretio - "
    end
    def relax
    		@body = "relax"

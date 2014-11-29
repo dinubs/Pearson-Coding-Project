@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-datepicker
+//= require_tree .
 
 $.fn.exists = function(){
     return $( ':not(' + this.selector + ')' ).length < $( '*' ).length;
@@ -45,6 +45,64 @@ document.addEventListener('page:change', function() {
   			}});
   		})
 	}
+	function getSelectedText() {
+	    var text = "";
+	    if (typeof window.getSelection != "undefined") {
+	        text = window.getSelection().toString();
+	    } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+	        text = document.selection.createRange().text;
+	    }
+	    return text;
+	}
+	function getSelectedElem(){
+	    if(window.getSelection){
+	        return $(window.getSelection().anchorNode);
+	    }
+	    else if(document.getSelection){
+	        return $(document.getSelection().anchorNode)
+	    }
+	    else if(document.selection){
+	        //todo figure out what to return here:
+	        return document.selection.createRange().text;
+	    }
+	    return $([]);
+	}
+
+	function doSomethingWithSelectedText() {
+		$('.popover').popover('hide');
+		var span = document.createElement("span");
+	    span.setAttribute("data-toggle", "popover");
+	    span.setAttribute("data-placement", "top auto")
+		if (window.getSelection) {
+	        var sel = window.getSelection();
+	        if (sel.rangeCount) {
+	        	var text = sel.toString().split(" ")[0];
+	            var range = sel.getRangeAt(0).cloneRange();
+	            span.id = text;
+	            span.setAttribute("title", text);
+	            // Do the ajax call
+	            $.getJSON("https://api.pearson.com:443/v2/dictionaries/ldoce5/entries?headword=" + text, function(data) {
+	            	var results = data.results[0];
+	            	var found = false;
+	            	if(data.results.length > 0) {
+	            		var string = data.results[0].senses[0].definition[0];
+	            		found = true;
+	            		span.setAttribute("data-content", string);	
+	            	} 
+	            	if(found == false) {
+	            		span.setAttribute("data-content", "No definition found :(");	
+	            	}
+	            	$('#' + text).popover('show');
+	            });
+	            range.surroundContents(span);
+	            sel.removeAllRanges();
+	            sel.addRange(range);
+	        }
+	    }
+	}
+
+	document.onmouseup = doSomethingWithSelectedText;
+	document.onkeyup = doSomethingWithSelectedText;
 });
 document.addEventListener('page:fetch', function() {
 	if($(".home").length) {	
