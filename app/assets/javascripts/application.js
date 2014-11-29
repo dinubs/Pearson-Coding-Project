@@ -85,7 +85,7 @@ document.addEventListener('page:change', function() {
 	            	var results = data.results[0];
 	            	var found = false;
 	            	if(data.results.length > 0) {
-	            		if ( data.results[0].senses[0].definition[0] ) {
+	            		if ( data.results[0].senses[0].definition ) {
 		            		var string = data.results[0].senses[0].definition[0];
 		            		found = true;
 		            		span.setAttribute("data-content", string);	
