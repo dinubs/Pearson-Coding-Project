@@ -85,9 +85,11 @@ document.addEventListener('page:change', function() {
 	            	var results = data.results[0];
 	            	var found = false;
 	            	if(data.results.length > 0) {
-	            		var string = data.results[0].senses[0].definition[0];
-	            		found = true;
-	            		span.setAttribute("data-content", string);	
+	            		if ( data.results[0].senses[0].definition[0] ) {
+		            		var string = data.results[0].senses[0].definition[0];
+		            		found = true;
+		            		span.setAttribute("data-content", string);	
+	            		}
 	            	} 
 	            	if(found == false) {
 	            		span.setAttribute("data-content", "No definition found :(");	
