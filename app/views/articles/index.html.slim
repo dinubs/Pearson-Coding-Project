@@ -20,14 +20,13 @@ div.col-sm-12
 div.col-sm-12
 	- @articles.each do |article|
 		.row 
-			.col-sm-9
+			.col-sm-11
 				h3 = link_to article_show_path(article)
 					= article.title
-			.col-sm-3
-				.pull-right.index-vote-count
-					.btn-group role="group" aria-label="..."
-						= render "voteButtons", :article => article
-			.col-sm-12
 				p  = article.content.first
+			.col-sm-1
+				.pull-right.index-vote-count
+					.btn-group-vertical role="group" aria-label="..."
+						= render "voteButtons", :article => article
 .text-center
 		= render "pagination"
