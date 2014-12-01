@@ -73,6 +73,7 @@ document.addEventListener('page:change', function() {
 		var span = document.createElement("span");
 	    span.setAttribute("data-toggle", "popover");
 	    span.setAttribute("data-placement", "top auto")
+	    if ($("input").is(":focus")) return;
 		if (window.getSelection) {
 	        var sel = window.getSelection();
 	        if (sel.rangeCount) {

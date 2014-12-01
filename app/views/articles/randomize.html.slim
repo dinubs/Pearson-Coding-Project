@@ -1,36 +1,23 @@
-div.row
-	div.col-sm-12
-		- if @page == 1 or params[:page] == "1"
-			h1.text-center This is the Cabretio
-			p.text-center
-				' Your source for researching about anything related to the economy. All the articles are provided by
-				= link_to "Financials Times", "http://www.ft.com"
-				' .
-				' We currently have 
-				=' human_num(@articles.count)
-				| articles provided for you, and ever growing!
-
 div.col-sm-12
 	h3 Search
 	= render "search"
-
+	p 
+		' Want to see the popular articles?
+		= link_to "popularize", articles_path
+	
 div.col-sm-12
 	- @articles.each do |article|
 		.row 
-			.col-sm-10
-				h3 = link_to article_show_path(article)
+			.col-sm-11
+				h5 = link_to article_show_path(article)
 					= article.title
-			.col-sm-2
-				.pull-right.index-vote-count
-					.btn-group role="group" aria-label="..."
-						- size = article.cached_votes_score
-						- if size >= 0 
-							- thumb = icon('thumbs-up', '', class: 'save')
-						- else
-							- thumb = icon('thumbs-down', '', class: 'save')							
-						= thumb
-						= (article.get_likes.size - article.get_dislikes.size)
-			.col-sm-12
 				p  = article.content.first
-.text-center
-		= render "pagination"
+			.col-sm-1
+				.pull-right.index-vote-count
+					.btn-group-vertical role="group" aria-label="..."
+						= render "voteButtons", :article => article
+
+div.row
+	div.text-center
+		' Roll some more articles?
+		= link_to "randomize", randomize_path, :class => "btn btn-sm btn-info"

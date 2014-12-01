@@ -3,8 +3,7 @@ div.row
 		- if @page == 1 or params[:page] == "1"
 			h1.text-center This is Cabretio
 			p.text-center
-				' Your source for researching about anything related to the economy. All the articles are provided by
-				= link_to "Financials Times", "http://www.ft.com"
+				' Your source for researching about anything related to the economy. All the articles are provided by you!
 				' .
 				' We currently have 
 				=' human_num(@articles.count)
@@ -21,7 +20,7 @@ div.col-sm-12
 	- @articles.each do |article|
 		.row 
 			.col-sm-11
-				h3 = link_to article_show_path(article)
+				h5 = link_to article_show_path(article)
 					= article.title
 				p  = article.content.first
 			.col-sm-1
