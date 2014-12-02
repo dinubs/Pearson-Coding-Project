@@ -1,9 +1,10 @@
 class Article < ActiveRecord::Base
-  validates :articleId,
-  			    :title, 
-            :content, 
+  validates :title, 
+            :content,
+            :link, 
             presence: true
             
+  validates :link, uniqueness: true
   acts_as_votable
        
   def self.search(search)

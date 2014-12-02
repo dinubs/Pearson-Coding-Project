@@ -1,5 +1,5 @@
 div.row
-	div.col-sm-12
+	div.col-xs-12
 		- if @page == 1 or params[:page] == "1"
 			h1.text-center This is Cabretio
 			p.text-center
@@ -10,20 +10,44 @@ div.row
 				| articles provided for you, and ever growing!
 	
 
-div.col-sm-12
+div.col-xs-12
 	h3 Search
 	= render "search"
 	p 
 		' Want to see random articles?
 		= link_to "randomize", randomize_path
-div.col-sm-12
+	p
+		' Have an article you want to add?
+		button#showModal data-toggle="modal" data-target="#myModal"
+			| Add One
+		div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+			div class="modal-dialog"
+				= form_tag :action => "create", :controller => "articles", :method => "post"
+					div class="modal-content"
+						div class="modal-header"
+							button type="button" class="close" data-dismiss="modal"
+								span aria-hidden="true" &times;
+								span class="sr-only" close
+							h4 class="modal-title" id="myModalLabel"
+								| Add an Article
+						.modal-body
+							= text_field_tag :link,"", :class => "form-control", :placeholder => "Link"
+							.checkbox
+								label	
+									= check_box_tag :create_link
+									| Add to your links
+						.modal-footer
+							button type="button" class="btn btn-danger" data-dismiss="modal"
+								| Cancel
+							= submit_tag "Create", :name => nil, :class=>"btn btn-success btn-md"
+div.col-xs-12
 	- @articles.each do |article|
 		.row 
-			.col-sm-11
+			.col-xs-10.col-sm-11
 				h5 = link_to article_show_path(article)
 					= article.title
 				p  = article.content.first
-			.col-sm-1
+			.col-xs-2.col-sm-1
 				.pull-right.index-vote-count
 					.btn-group-vertical role="group" aria-label="..."
 						= render "voteButtons", :article => article

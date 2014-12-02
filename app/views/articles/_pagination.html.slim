@@ -1,1 +1,22 @@
-= will_paginate @articles, renderer: BootstrapPagination::Rails, :inner_window => 1, :outer_window => 1
+- unless mobile_device?
+	= will_paginate @articles, renderer: BootstrapPagination::Rails, :inner_window => 1, :outer_window => 1
+- else
+	ul.pager
+		- if @articles.current_page > @articles.total_pages
+			li.previous.pull-left
+				= link_to "Previous", "#{articles_path}?page=#{@articles.current_page-1}", :class => "previous pull-left"
+		- else 
+			li.previous.pull-left.disabled
+				a
+					| Previous
+		li
+			= @articles.current_page
+			| /
+			= @articles.total_pages
+		- if @articles.current_page < @articles.total_pages
+			li.next.pull-right
+				= link_to "Next", "#{articles_path}?page=#{@articles.current_page+1}"
+		- else 
+			li.next.pull-right.disabled
+				a
+					| Next

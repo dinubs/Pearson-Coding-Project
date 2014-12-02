@@ -28,6 +28,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'acts_as_votable'
 
+gem 'ruby-readability'
+
 gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm', group: :production

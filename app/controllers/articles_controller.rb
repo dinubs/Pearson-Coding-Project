@@ -32,6 +32,55 @@ class ArticlesController < ApplicationController
     @art = Article.order("RANDOM()").first
     redirect_to article_path(@art)
   end
+
+  require 'open-uri'
+  def create
+    if !current_user
+      flash[:danger] = "HEY! You need to be signed in to do that"
+      redirect_to login_path
+      return
+    end
+    begin  
+      page = Nokogiri::HTML(open(permitted_params))
+      source = open(permitted_params).read
+    rescue => e
+      flash[:danger] = "HEY! That's not a real url"
+      redirect_to root_path
+      return
+    end
+    content = Readability::Document.new(source).content
+    pTags = Nokogiri::HTML(content).css("p")
+    title = page.css("h1")[0].text
+    tags = []
+    pTags.each do |tag| 
+      tags.push(tag.text)
+    end
+    @article = Article.new
+    @article.title = title
+    @article.content = tags
+    @article.link = permitted_params
+    if params[:create_link] == "1"
+      puts "YES"
+      @user = current_user
+      link = @article.link.scan(/\.([^"]*)\./)
+      if link.empty?
+        link = @article.link.scan(/\/([^"]*)\./)
+      end
+      puts link.count
+      @link = @user.links.new(:website_title => link[0][0],
+                              :article_title => @article.title,
+                              :date_accessed => DateTime.now(),
+                              :user => @user,
+                              :url => @article.link)
+      if @link.save!
+        flash[:info] = "psst, we also added this to your links :)"
+      end
+    end
+    if @article.save
+      flash[:success] = "Awesome, you've created a new article!"
+      redirect_to article_path(@article)
+    end
+  end
   
   def randomize
 		if params[:page]
@@ -43,20 +92,22 @@ class ArticlesController < ApplicationController
 		@page = page
 		@title = "Articles - "
   end
+
   def vote
-      @article = Article.find(params[:id])
-      if !current_user
-        flash[:danger] = "You need to be logged in to like a post"
-        session[:return_to_url] = like_article_path(@article)
-        redirect_to login_path
-      elsif current_user.voted_up_on? @article
-        flash[:warning] = "You've already liked this article, try to like another one"
-        redirect_to article_path(@article)
-      elsif @article.liked_by current_user
-        flash[:success] = "You liked this article"
-        redirect_to article_path(@article)
-      end
+    @article = Article.find(params[:id])
+    if !current_user
+      flash[:danger] = "You need to be logged in to like a post"
+      session[:return_to_url] = like_article_path(@article)
+      redirect_to login_path
+    elsif current_user.voted_up_on? @article
+      flash[:warning] = "You've already liked this article, try to like another one"
+      redirect_to article_path(@article)
+    elsif @article.liked_by current_user
+      flash[:success] = "You liked this article"
+      redirect_to article_path(@article)
     end
+  end
+
   def downvote
     @article = Article.find(params[:id])
     if !current_user
@@ -71,4 +122,9 @@ class ArticlesController < ApplicationController
       redirect_to article_path(@article)
     end
   end	
+
+  private
+    def permitted_params
+      params.require(:link)
+    end
 end
