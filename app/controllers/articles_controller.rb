@@ -9,6 +9,9 @@ class ArticlesController < ApplicationController
     @articles = Article.order(:cached_votes_score => :desc).paginate(:page => page, :per_page => 15)
 		@page = page
 		@title = "Articles - "
+    respond_to do |format|
+      format.json  { render :json => @articles } # don't do msg.to_json
+    end
 	end
 
 	def show
