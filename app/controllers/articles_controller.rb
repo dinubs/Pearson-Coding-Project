@@ -11,12 +11,17 @@ class ArticlesController < ApplicationController
 		@title = "Articles - "
     respond_to do |format|
       format.json  { render :json => @articles } # don't do msg.to_json
+      format.html 
     end
 	end
 
 	def show
 		@article = Article.find(params[:id])
 		@title = @article.title
+    respond_to do |format|
+      format.json  { render :json => @article } # don't do msg.to_json
+      format.html 
+    end
 	end
 	
 	def search
