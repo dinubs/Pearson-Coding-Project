@@ -6,7 +6,12 @@ class ArticlesController < ApplicationController
 		else 
 			page = 1
 		end
-    @articles = Article.order(:cached_votes_score => :desc).paginate(:page => page, :per_page => 15)
+    if params[:per_page] 
+      per_page = params[:per_page]
+    else
+      per_page = 15
+    end
+    @articles = Article.order(:cached_votes_score => :desc).paginate(:page => page, :per_page => per_page)
 		@page = page
 		@title = "Articles - "
     respond_to do |format|
@@ -32,8 +37,17 @@ class ArticlesController < ApplicationController
 			@page = 1
       @title = "Search - "
 		end
-		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => 15).uniq
+    if params[:per_page] 
+      per_page = params[:per_page]
+    else
+      per_page = 15
+    end
+		@articles = Article.search(params[:search]).paginate(:page => @page, :per_page => per_page)
 		@count = @articles.count
+    respond_to do |format|
+      format.json  { render :json => @articles } # don't do msg.to_json
+      format.html 
+    end
 	end
   
   def random 
