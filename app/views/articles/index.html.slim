@@ -46,7 +46,9 @@ div.col-xs-12
 			.col-xs-10.col-sm-11
 				h5 = link_to article_show_path(article)
 					= article.title
-				p  = article.content.first
+				p  
+					=' truncate(article.content.first, :length => 200, :omission => "...") do
+					= link_to "More", article
 			.col-xs-2.col-sm-1
 				.pull-right.index-vote-count
 					.btn-group-vertical role="group" aria-label="..."

@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :links
 
+  get '/api/users/login' => "users#api_auth"
+  get '/api/users/show' => "users#api_show"
+
   get '/random' => "articles#random"
   get '/:id' => "articles#show", :as => "article_show"
 

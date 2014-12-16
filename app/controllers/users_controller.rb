@@ -24,7 +24,35 @@ class UsersController < ApplicationController
     	else
       		render :new
     	end
-  	end  
+  	end 
+
+
+    def api_auth
+      
+      if params[:key] != Rails.application.secrets.api_key
+        render :json => "no"
+        return
+      end
+      user = login(params[:email], params[:password], false)
+      if user 
+        # Login succeeded
+        logout
+        render :json => "ok"
+      else
+        # Login Failed
+        render :json => "no"
+      end
+    end
+    def api_show 
+      if params[:key] != Rails.application.secrets.api_key
+        render :json => "no"
+        return
+      end
+      user = User.find_by_email(params[:email])
+      render :json => user.links.order("created_at DESC")
+    end
+
+
 private
   	def permitted_params
     	params.require(:user).permit(:email,

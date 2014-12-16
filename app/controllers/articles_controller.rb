@@ -72,10 +72,10 @@ class ArticlesController < ApplicationController
     end
     content = Readability::Document.new(source).content
     pTags = Nokogiri::HTML(content).css("p")
-    title = page.css("h1")[0].text
+    title = page.css("h1")[0].text.strip
     tags = []
     pTags.each do |tag| 
-      tags.push(tag.text)
+      tags.push(tag.text.strip)
     end
     @article = Article.new
     @article.title = title

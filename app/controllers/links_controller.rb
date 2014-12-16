@@ -12,6 +12,8 @@ class LinksController < ApplicationController
 	def create
   	@user = current_user
   	@link = @user.links.new(permitted_params)
+    @link.article_title = @link.article_title.strip
+    @link.website_title = @link.website_title.strip
   	@link.user = current_user
   	if @link.save
 	    flash[:success] = "Awesome, you've created a new link!"
