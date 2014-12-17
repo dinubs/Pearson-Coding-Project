@@ -52,6 +52,21 @@ class UsersController < ApplicationController
       render :json => user.links.order("created_at DESC")
     end
 
+    def api_new
+      @user = User.new(permitted_params)
+      if params[:key] != Rails.application.secrets.api_key
+        render :json => "no"
+        return
+      end
+      if @user.save
+        auto_login(@user)
+        flash[:success] = "Thanks for signing up!"
+        redirect_to root_path
+      else
+          render :new
+      end
+    end 
+
 
 private
   	def permitted_params
