@@ -58,12 +58,10 @@ class UsersController < ApplicationController
         render :json => "no"
         return
       end
-      if @user.save
-        auto_login(@user)
-        flash[:success] = "Thanks for signing up!"
-        redirect_to root_path
+      if @user.save 
+        render :json => "ok"
       else
-          render :new
+        render :json => "no"
       end
     end 
 
