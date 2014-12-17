@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   get '/api/users/login' => "users#api_auth"
   get '/api/users/show' => "users#api_show"
-  post '/api/users/new' => "users#api_new"
+  get '/api/users/new' => "users#api_new"
 
   get '/random' => "articles#random"
   get '/:id' => "articles#show", :as => "article_show"
