@@ -12,9 +12,23 @@ div.panel.panel-default
 					= link_to text, new_link_path(:article_title => @article.title, :website_title => "Cabretio", :url => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", :date_accessed => Date.today) , :method=>:post, :class => "btn btn-sm btn-success"
 			div.panel-body
 				= citation(@article.title, "Cabretio", Date.today, "#{request.protocol}#{request.host_with_port}#{request.fullpath}")
+#disqus_thread
+noscript
+	| Please enable JavaScript to view the 
+	a href="http://disqus.com/?ref_noscript"
+		| comments powered by Disqus.
+
 javascript:
 	$( "p" )
   	.mouseup(function() {
   		console.log($.selection());
   	});
+  	var disqus_shortname = 'cabretio'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
 	
