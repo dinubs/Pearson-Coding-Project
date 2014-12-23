@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   skip_before_action :verify_authenticity_token, if: :json_request?
 
+  before_filter :check_if_user_exists
+
+  def check_if_user_exists
+    if !current_user
+      @user = User.new
+    end
+  end
+
  	def human_num(number,rounding=0,delimiter=',',separator='.')
       value = number.to_i.ceil
   

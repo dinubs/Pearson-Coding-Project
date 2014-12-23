@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       		redirect_back_or_to me_path, :success => "Logged in!"  
     	else  
       		flash[:danger] = "Email or password was invalid."  
-          redirect_to :back
+          redirect_to login_path
 		end  
 	end  
 

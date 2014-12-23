@@ -39,9 +39,62 @@ html
 					-else 
 						ul.nav.navbar-nav.navbar-right
 							li	
-			          			= link_to "Sign Up", signup_path
+			          			button.btn.btn-info.nav-link data-toggle="modal" data-target="#signupModal"
+			          				| Sign Up
+								div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+									div class="modal-dialog"
+										div class="modal-content"
+											.modal-header
+												button type="button" class="close" data-dismiss="modal"
+													span aria-hidden="true" &times;
+													span class="sr-only" close
+												h4 class="modal-title" id="myModalLabel"
+													| Sign Up
+											.modal-body
+												= simple_form_for(@user, html: { class: 'form-vertical' }) do |f|
+													.form-group
+														= f.input :email, :placeholder => "Email", :input_html => { :class => "form-control", :label => "" }
+													.form-group
+														= f.input :password, :placeholder => "Password", :input_html => { :class => "form-control" }
+													.form-group
+														= f.submit :class =>"btn btn-sm btn-success", :value => "Sign Up"
+												p
+													| Already have an account?
+													button.btn.btn-info.btn-sm data-toggle="modal" data-target="#loginModal" data-dismiss="modal"
+			          									| Login
+
 			          		li	
-			          			= link_to "Login", login_path
+			          			/ = link_to "Login", login_path
+			          			button.btn.btn-info.nav-link data-toggle="modal" data-target="#loginModal"
+			          				| Login
+			          			div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+									div class="modal-dialog"
+										div class="modal-content"
+											.modal-header
+												button type="button" class="close" data-dismiss="modal"
+													span aria-hidden="true" &times;
+													span class="sr-only" close
+												h4 class="modal-title" id="myModalLabel"
+													| Login
+											.modal-body
+												= form_tag 'login', :id => "form", :class => "form-vertical",  method: :post, :controller => "sessions" do
+													.form-group
+														= label_tag(:email, "Email")
+														= text_field_tag :email, nil, placeholder: "your@email.com", :class => "form-control"
+													.form-group
+														= label_tag(:password, "Password")
+														= password_field_tag :password, nil, placeholder: "Password", :class => "form-control"
+													.form-group
+														=' label_tag(:remember_me, "Remember Me")
+														= check_box :remember_me, false
+													.form-group
+														= submit_tag "Login", :class => "btn btn-sm btn-success"
+												p
+													| Dont' have an account?
+													button.btn.btn-info.btn-sm data-toggle="modal" data-target="#signupModal" data-dismiss="modal" 
+			          									| Sign Up
+	
+
 		div.container#primary-content
 			div.row
 				div.col-xs-12.col-sm-8.col-sm-offset-2

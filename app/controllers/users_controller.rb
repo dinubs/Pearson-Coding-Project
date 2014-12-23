@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     		@title = "Your Page - "
     	else
     		flash[:danger] = "You need to be logged in to see that page!"
-    		redirect_to articles_path
+    		redirect_to login_path
     	end
   	end
 
