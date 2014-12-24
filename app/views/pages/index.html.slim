@@ -1,4 +1,4 @@
-
+div#particles-js data-count="#{[@count / 10, 500].min}"
 div.vertAlign.text-center
 	    h3
 	       	' Search over 
@@ -13,3 +13,24 @@ div.vertAlign.text-center
 			=' link_to "All Articles", articles_path
 			' |
 			=' link_to "Feeling Stressed", relax_path
+
+javascript:
+	particlesJS('particles-js', {
+	  particles: {
+	    color: '#fff',
+	    shape: 'circle', // "circle", "edge" or "triangle"
+	    opacity: 0.75,
+	    size: 2,
+	    size_random: true,
+	    nb: $('#particles-js').data('count'),
+	    anim: {
+	      enable: true,
+	      speed: 1
+	    }
+	  },
+	  interactivity: {
+	    enable: false
+	  },
+	  /* Retina Display Support */
+	  retina_detect: true
+	});
