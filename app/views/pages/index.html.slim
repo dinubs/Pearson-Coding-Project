@@ -1,4 +1,4 @@
-div#particles-js data-count=@count
+div#particles-js data-count=@node_count
 div.vertAlign.text-center
 	    h3.white
 	       	' Search over 
@@ -37,6 +37,13 @@ javascript:
 	    mode: 'grab',
 	    line_linked: {
 	      opacity: .5
+	    },
+	    events: {
+	      onclick: {
+	        enable: false,
+	        mode: 'push', // "push" or "remove" (particles)
+	        nb: 4
+	      }
 	    }
 	  },
 	  /* Retina Display Support */

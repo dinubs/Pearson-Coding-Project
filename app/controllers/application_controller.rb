@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   def check_if_user_exists
     if !current_user
       @user = User.new
+    else
+      @link = Link.new
     end
   end
 
