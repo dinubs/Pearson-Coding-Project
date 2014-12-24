@@ -2,7 +2,8 @@ class PagesController < ApplicationController
    
    def index 
        @body = "home"
-       @count = Article.count
+       count = Article.count
+       @count = [500, count].min
        @title = "Home - "
    end
    def about

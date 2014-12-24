@@ -1,11 +1,11 @@
-div#particles-js data-count="#{[@count / 10, 500].min}"
+div#particles-js data-count=@count
 div.vertAlign.text-center
-	    h3
+	    h3.white
 	       	' Search over 
 			=' human_num(@count)
 	    	| Articles
 	    = render "articles/search"
-	    p
+	    p.white
 	    	=' link_to "About Cabretio", about_path
 	    	' |
 			=' link_to "Search Articles", search_path
@@ -29,7 +29,15 @@ javascript:
 	    }
 	  },
 	  interactivity: {
-	    enable: false
+	    enable: true,
+	    mouse: {
+	      distance: 250
+	    },
+	    detect_on: 'canvas', // "canvas" or "window"
+	    mode: 'grab',
+	    line_linked: {
+	      opacity: .5
+	    }
 	  },
 	  /* Retina Display Support */
 	  retina_detect: true
