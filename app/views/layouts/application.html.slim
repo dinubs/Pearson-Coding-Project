@@ -35,7 +35,7 @@ html
 		          			li
 		          				= link_to "Logout", logout_path
 		          		div.navbar-right
-		          			button.btn.btn-info.nav-link data-toggle="modal" data-target="#newLinkModal"
+		          			button.btn.btn-sm.btn-info.nav-link data-toggle="modal" data-target="#newLinkModal"
 		          				| Add Link
 							div class="modal fade" id="newLinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 								div class="modal-dialog"
@@ -58,7 +58,7 @@ html
 													= f.input :date_accessed, :placeholder => "Date Accessed", :label => "Date Accessed", :input_html => { :class => "", :value => params[:date_accessed] }
 												.form-group
 													= f.submit :class =>"btn btn-sm btn-success", :value => "Create New Link"
-							button.btn.btn-info.nav-link data-toggle="modal" data-target="#newArticle"
+							button.btn.btn-sm.btn-info.nav-link data-toggle="modal" data-target="#newArticle"
 									| Add Article
 							div class="modal fade" id="newArticle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 								div class="modal-dialog"

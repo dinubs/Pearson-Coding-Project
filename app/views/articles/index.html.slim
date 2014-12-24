@@ -15,7 +15,7 @@ div.col-xs-12
 	= render "search"
 	p 
 		' Want to see random articles?
-		= link_to "randomize", randomize_path
+		= link_to "randomize", randomize_path, :class => "btn btn-xs btn-info"
 div.col-xs-12
 	- @articles.each do |article|
 		.row 

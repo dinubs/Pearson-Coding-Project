@@ -1,4 +1,8 @@
 h1 = @article.title
+small.subtitle 
+	' Original location:
+	= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link
+hr
 - @article.content.each do |p|
 	p = p
 

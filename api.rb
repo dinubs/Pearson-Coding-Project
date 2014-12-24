@@ -10,7 +10,7 @@ def publish_to_api(articleId)
 	# puts tempStuff["result"]["headline"]
 	# puts tempStuff["result"]["text"]
 	# puts tempStuff["id"]
-	Article.create :articleId => tempStuff["id"], :title => tempStuff["result"]["headline"], :content => tempStuff["result"]["text"]
+	Article.create :articleId => tempStuff["id"], :title => tempStuff["result"]["headline"], :content => tempStuff["result"]["text"], :link => tempStuff["result"]["article_url"] 
 rescue JSON::ParserError => e
 	puts "Sleeping for a bit zzz"
 	sleep 30

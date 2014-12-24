@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202071435) do
+ActiveRecord::Schema.define(version: 20141224215932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141202071435) do
     t.integer "cached_weighted_total",   default: 0
     t.float   "cached_weighted_average", default: 0.0
     t.string  "link"
+    t.string  "external_link",           default: ""
   end
 
   add_index "articles", ["cached_votes_down"], name: "index_articles_on_cached_votes_down", using: :btree
