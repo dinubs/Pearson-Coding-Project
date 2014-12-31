@@ -55,15 +55,6 @@
     <xsl:apply-templates/>
   </xsl:template>
   <!-- TODO: make this prettier. Headings shouldn't enter in template from L51 -->
-  <w:style w:type="paragraph" w:default="on" w:styleId="Normal">
-    <w:name w:val="Normal"/>
-    <w:rPr>
-      <wx:font wx:val="Times New Roman"/>
-      <w:sz w:val="24"/>
-      <w:sz-cs w:val="24"/>
-      <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
-    </w:rPr>
-  </w:style>
   <xsl:template match="body/h1|h1">
     <w:p>
       <w:r>
