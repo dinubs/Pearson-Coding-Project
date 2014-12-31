@@ -5,7 +5,7 @@ class DocsController < ApplicationController
 
 	Htmltoword.configure do |config|
 		config.default_xslt_path = "#{File.expand_path File.dirname(__FILE__)}/htmltoword/"
-		config.custom_xslt_path = "#{File.expand_path File.dirname(__FILE__)}/htmltoword/html_to_wordml.xslt"
+		# config.custom_xslt_path = "#{File.expand_path File.dirname(__FILE__)}/htmltoword/html_to_wordml.xslt"
 	end
 
 
