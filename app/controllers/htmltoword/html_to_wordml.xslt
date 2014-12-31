@@ -1,9 +1,5 @@
 <xsl:stylesheet exclude-result-prefixes="java msxsl ext w o v WX aml w10" version="1.0" xmlns:WX="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:ext="http://www.xmllab.net/wordml2html/ext" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:java="http://xml.apache.org/xalan/java" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:pkg="http://schemas.microsoft.com/office/2006/xmlPackage" xmlns:str="http://exslt.org/common" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no"/>
-    <w:fonts>
-    <w:defaultFonts w:ascii="Helvetica" w:fareast="Helvetica"
-                    w:h-ansi="Helvetica" w:cs="Helvetica"/>
-  </w:fonts>
   <xsl:template match="/">
     <w:document mc:Ignorable="w14 wp14" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mo="http://schemas.microsoft.com/office/mac/office/2008/main" xmlns:mv="urn:schemas-microsoft-com:mac:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
       <xsl:apply-templates/>
@@ -134,13 +130,8 @@
         <w:rPr>
           <w:rFonts w:ascii="Helvetica" w:h-ansi="Helvetica" w:cs="Helvetica"/>
        </w:rPr>
-        <w:pPr>
-
-        </w:pPr>
-        <w:pict>
-          <v:line id="Line 2" o:spid="_x0000_s4097" style="position:absolute;z-index:251657728;visibility:visible" from="-3.75pt,.2pt" to="484.35pt,.2pt" o:gfxdata="UEsDBBQA...BQAAAAA=&#xA;" strokecolor="gray"/>
-        </w:pict>
       </w:r>
+       xml:space="preserve"
       <xsl:apply-templates/>
     </w:p>
   </xsl:template>
