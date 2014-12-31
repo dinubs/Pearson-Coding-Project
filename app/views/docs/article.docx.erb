@@ -2,5 +2,6 @@
 
 <h1><%= @article.title %></h1>
 <h5>Original link: <%= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link %></h5>
+<br>
 
 <% @article.content.each do |content| %><p><%= content %></p><% end %>

@@ -1,3 +1,4 @@
 <h1>Cabretio</h1>
-<h3><%= @user.email %></h3>
-<hr />
+<% if current_user %>
+	<h3><%= @user.email%></h3>
+<% end %>
