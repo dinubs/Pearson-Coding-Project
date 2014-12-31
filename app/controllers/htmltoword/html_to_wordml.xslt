@@ -139,7 +139,17 @@
   </xsl:template>
   <xsl:template match="p">
     <w:p>
-      <xsl:call-template name="text-alignment"/>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:ascii="Helvetica" w:h-ansi="Helvetica" w:cs="Helvetica"/>
+       </w:rPr>
+        <w:pPr>
+
+        </w:pPr>
+        <w:pict>
+          <v:line id="Line 2" o:spid="_x0000_s4097" style="position:absolute;z-index:251657728;visibility:visible" from="-3.75pt,.2pt" to="484.35pt,.2pt" o:gfxdata="UEsDBBQA...BQAAAAA=&#xA;" strokecolor="gray"/>
+        </w:pict>
+      </w:r>
       <xsl:apply-templates/>
     </w:p>
   </xsl:template>
