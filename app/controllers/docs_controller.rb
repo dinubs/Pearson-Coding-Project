@@ -4,7 +4,7 @@ class DocsController < ApplicationController
 	respond_to :docx
 
 	Htmltoword.configure do |config|
-		# config.default_xslt_path = "#{File.expand_path File.dirname(__FILE__)}/htmltoword/"
+		config.default_xslt_path = "#{File.expand_path File.dirname(__FILE__)}/htmltoword/"
 		# config.custom_xslt_path = "#{File.expand_path File.dirname(__FILE__)}/htmltoword/html_to_wordml.xslt"
 	end
 

@@ -93,21 +93,6 @@
       </w:r>
     </w:p>
   </xsl:template>
-  <xsl:template match="body/hr|hr">
-    <w:p>
-      <w:r>
-        <w:rPr>
-          <w:rFonts w:ascii="Helvetica" w:h-ansi="Helvetica" w:cs="Helvetica"/>
-       </w:rPr>
-        <w:pPr>
-
-        </w:pPr>
-        <w:pict>
-          <v:line id="Line 2" o:spid="_x0000_s4097" style="position:absolute;z-index:251657728;visibility:visible" from="-3.75pt,.2pt" to="484.35pt,.2pt" o:gfxdata="UEsDBBQA...BQAAAAA=&#xA;" strokecolor="gray"/>
-        </w:pict>
-      </w:r>
-    </w:p>
-  </xsl:template>
   <xsl:template match="body/h2|body/h4|body/h5|body/h6|h2|h4|h5|h6">
     <xsl:variable name="length" select="string-length(name(.))"/>
     <w:p>
