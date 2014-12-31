@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document mc:Ignorable="w14 wp14" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mo="http://schemas.microsoft.com/office/mac/office/2008/main" xmlns:mv="urn:schemas-microsoft-com:mac:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+	<w:body>
+		<w:p w14:paraId="10238609" w14:textId="65A59F06" w:rsidP="00FE526D" w:rsidR="00FE526D" w:rsidRDefault="00FE526D" w:rsidRPr="00FE526D">
+			<w:pPr>
+				<w:pStyle w:val="Heading1"/>
+			</w:pPr>
+			<w:r w:rsidRPr="00FE526D">
+				<w:t>Heading 1</w:t>
+			</w:r>
+		</w:p>
+		<w:p w14:paraId="4B967224" w14:textId="34A212D2" w:rsidP="00FE526D" w:rsidR="00FE526D" w:rsidRDefault="00FE526D">
+			<w:pPr>
+				<w:pStyle w:val="Heading2"/>
+			</w:pPr>
+			<w:r>
+				<w:t>Heading 2</w:t>
+			</w:r>
+			<w:bookmarkStart w:id="0" w:name="_GoBack"/>
+			<w:bookmarkEnd w:id="0"/>
+		</w:p>
+		<w:p w14:paraId="1DD2A21E" w14:textId="737AB6D8" w:rsidP="00FE526D" w:rsidR="00FE526D" w:rsidRDefault="00FE526D">
+			<w:pPr>
+				<w:pStyle w:val="Heading3"/>
+			</w:pPr>
+			<w:r>
+				<w:t>Heading 3</w:t>
+			</w:r>
+		</w:p>
+		<w:p w14:paraId="45C56AEA" w14:textId="655A9652" w:rsidP="00FE526D" w:rsidR="00FE526D" w:rsidRDefault="00FE526D">
+			<w:pPr>
+				<w:pStyle w:val="Heading4"/>
+			</w:pPr>
+			<w:r>
+				<w:t>Heading 4</w:t>
+			</w:r>
+		</w:p>
+		<w:p w14:paraId="34182393" w14:textId="7AE98912" w:rsidP="00FE526D" w:rsidR="00FE526D" w:rsidRDefault="00FE526D">
+			<w:pPr>
+				<w:pStyle w:val="Heading5"/>
+			</w:pPr>
+			<w:r>
+				<w:t>Heading 5</w:t>
+			</w:r>
+		</w:p>
+		<w:p w14:paraId="1D199EB0" w14:textId="6C3C6E26" w:rsidP="00FE526D" w:rsidR="00FE526D" w:rsidRDefault="00FE526D" w:rsidRPr="00FE526D">
+			<w:pPr>
+				<w:pStyle w:val="Heading6"/>
+			</w:pPr>
+			<w:r>
+				<w:t>Heading 6</w:t>
+			</w:r>
+		</w:p>
+		<w:p w14:paraId="537454A4" w14:textId="4024054F" w:rsidP="000D53FF" w:rsidR="000D53FF" w:rsidRDefault="000D53FF" w:rsidRPr="000D53FF">
+			<w:pPr>
+				<w:pStyle w:val="Heading6"/>
+			</w:pPr>
+		</w:p>
+		<w:sectPr w:rsidR="000D53FF" w:rsidRPr="000D53FF" w:rsidSect="007F2947">
+			<w:pgSz w:h="16840" w:w="11900"/>
+			<w:pgMar w:bottom="1440" w:footer="708" w:gutter="0" w:header="708" w:left="1440" w:right="1440" w:top="1440"/>
+			<w:cols w:space="708"/>
+			<w:docGrid w:linePitch="360"/>
+		</w:sectPr>
+	</w:body>
+</w:document>

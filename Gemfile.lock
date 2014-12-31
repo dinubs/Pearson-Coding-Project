@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/nickfrandsen/htmltoword.git
+  revision: c31e1fbb5df8985a85faa78d863e6fa507c99ac5
+  specs:
+    htmltoword (0.2.0)
+      actionpack
+      nokogiri
+      rubyzip
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,12 +39,17 @@ GEM
     acts_as_votable (0.10.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    better_errors (2.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     bootstrap-datepicker-rails (1.3.0.2)
       railties (>= 3.0)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
     builder (3.2.2)
+    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -52,7 +66,7 @@ GEM
     google-analytics-rails (0.0.6)
     guess_html_encoding (0.0.9)
     hike (1.2.3)
-    i18n (0.6.11)
+    i18n (0.7.0)
     jbuilder (2.2.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -64,8 +78,8 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
-    mini_portile (0.6.1)
-    minitest (5.4.2)
+    mini_portile (0.6.2)
+    minitest (5.5.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -73,7 +87,7 @@ GEM
       bourbon (>= 3.1)
       sass (~> 3.2.19)
     newrelic_rpm (3.9.6.257)
-    nokogiri (1.6.4.1)
+    nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     numbers_and_words (0.10.0)
       activesupport
@@ -115,6 +129,7 @@ GEM
     ruby-readability (0.7.0)
       guess_html_encoding (>= 0.0.4)
       nokogiri (>= 1.6.0)
+    rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -169,11 +184,13 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable
+  better_errors (~> 2.1.0)
   bootstrap-datepicker-rails
   bourbon
   coffee-rails (~> 4.0.0)
   font-awesome-sass (~> 4.2.0)
   google-analytics-rails
+  htmltoword!
   jbuilder (~> 2.0)
   jquery-rails
   neat

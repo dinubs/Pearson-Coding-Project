@@ -105,6 +105,16 @@ document.addEventListener('page:change', function() {
 
 	document.onmouseup = doSomethingWithSelectedText;
 	document.onkeyup = doSomethingWithSelectedText;
+
+	$(".doc-download").on("click", function(){
+		var links = $(this).data("links"); 
+		var url = "/docs/" + $(this).data("url") + ".docx";
+		var article = $(this).data("article");
+		console.log("YES");
+		$.fileDownload(url, {
+		  data: {"links": links, "article": article}
+		});
+	});
 });
 document.addEventListener('page:fetch', function() {
 	if($(".home").length) {	
@@ -133,3 +143,8 @@ function getCookie(cname) {
     }
     return "";
 }
+
+
+
+
+

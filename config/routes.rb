@@ -32,6 +32,10 @@ Rails.application.routes.draw do
   resources :sessions
   resources :links
 
+  get 'docs/template' => "docs#template"
+  get 'docs/links' => "docs#links"
+  get 'docs/article' => "docs#article"
+
   get '/api/users/login' => "users#api_auth"
   get '/api/users/show' => "users#api_show"
   get '/api/users/new' => "users#api_new"

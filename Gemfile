@@ -16,12 +16,14 @@ gem 'spring',        group: :development
 gem 'sorcery'
 gem 'simple_form'
 gem 'google-analytics-rails'
+gem 'better_errors', '~> 2.1.0'
 
 gem 'bourbon'
 gem 'neat'
 gem 'numbers_and_words'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass', '~> 4.2.0'
+gem 'htmltoword', :git => "https://github.com/nickfrandsen/htmltoword.git"
 
 gem 'slim-rails'
 gem 'will_paginate', '~> 3.0'
@@ -34,4 +36,4 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm', group: :production
 
-ruby "2.0.0"
+ruby "2.2.0"

@@ -2,6 +2,9 @@ h1 = @article.title
 small.subtitle 
 	' Original location:
 	= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link, :target => "_blank"
+p
+	a.btn.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="article" title="Download this article into a word doc"
+			= icon('file-word-o')
 hr
 - @article.content.each do |p|
 	p = p

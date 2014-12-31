@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     if !current_user
       @user = User.new
     else
+      @user = current_user
       @link = Link.new
     end
   end

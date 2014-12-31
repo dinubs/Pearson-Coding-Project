@@ -7,6 +7,9 @@ h3
 	| Links
 p
 	| These are the citations you would use in your works cited
+p
+	a.btn.btn-sm.btn-info.doc-download href="#" data-links="all" data-url="links" title="Download all your links into a word doc"
+			= icon('file-word-o')
 
 - if @links.count > 0
 	- @links.each_with_index do |link, index|
@@ -24,4 +27,5 @@ p
 			div.panel-body
 				= citation(link.article_title, link.website_title, link.date_accessed, link.url)
 - else
-	= link_to "You Need Some Links!", new_link_path, :class => "btn btn-sm btn-success"
+	button.btn.btn-sm.btn-info data-toggle="modal" data-target="#newLinkModal"
+		| You need some Links

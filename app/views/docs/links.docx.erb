@@ -1,0 +1,12 @@
+<%= render "header" %>
+<% @links.each do |link| %>
+
+	<p>
+		<span><i>"<%= link.article_title %>".</i> </span>
+		<span><%= link.website_title %>. </span>
+		<span>Web. </span>
+		<span><%= link.date_accessed.strftime('%B') %>, <%= link.date_accessed.year %> </span>
+		<span>&lt;<%= link.url %>&gt;</span>
+	</p>
+
+<% end %>
