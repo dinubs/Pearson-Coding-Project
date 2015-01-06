@@ -23,6 +23,10 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@title = @article.title
+    @link = Link.new()
+    @link.article_title = @article.title
+    @link.website_title = @article.link.scan(/\/([^"]*)\./)[0][0]
+    @link.url = @article.link
     respond_to do |format|
       format.json  { render :json => @article } # don't do msg.to_json
       format.html 

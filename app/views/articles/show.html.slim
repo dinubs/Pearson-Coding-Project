@@ -1,10 +1,14 @@
 h1 = @article.title
-small.subtitle 
-	' Original location:
-	= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link, :target => "_blank"
-p
-	a.btn.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="article" title="Download this article into a word doc"
-			= icon('file-word-o')
+.row
+	.col-sm-10
+		small.subtitle 
+			' Original location:
+			= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link, :target => "_blank"
+	.col-sm-2
+		p
+			a.btn.btn-sm.btn-info.doc-download.pull-right href="#" data-article="#{@article.id}" data-url="article" title="Download this article into a word doc"
+				' download
+				= icon('file-word-o')
 hr
 - @article.content.each do |p|
 	p = p
@@ -16,7 +20,10 @@ div.panel.panel-default
 					.btn-group role="group" aria-label="..."
 						= render "voteButtons", :article => @article
 					- text = icon('save', '', class: 'save')
-					= link_to text, new_link_path(:article_title => @article.title, :website_title => "Cabretio", :url => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", :date_accessed => Date.today) , :method=>:post, :class => "btn btn-sm btn-success"
+					a.btn.btn-sm.btn-info href="#" data-toggle="modal" data-target="#newLinkModal"
+						= text
+					a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="link-from-article" title="Download this article into a word doc"
+						= icon('file-word-o', '', class: 'save')
 			div.panel-body
 				= citation(@article.title, "Cabretio", Date.today, "#{request.protocol}#{request.host_with_port}#{request.fullpath}")
 #disqus_thread

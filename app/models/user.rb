@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :links
 
+  validates :email, uniqueness: true
+
   validates :email, :password, presence: true
   
   acts_as_voter

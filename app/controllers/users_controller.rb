@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   	def create
     	@user = User.new(permitted_params)
     	if @user.save
+        UserMailer.welcome_email(@user).deliver
 		    auto_login(@user)
 		    flash[:success] = "Thanks for signing up!"
 		    redirect_to root_path

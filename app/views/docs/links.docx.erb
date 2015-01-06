@@ -1,4 +1,8 @@
 <%= render "header" %>
-<% @links.each do |link| %>
-<p><i>"<%= link.article_title %>".</i> <%= link.website_title %>. Web. <%= link.date_accessed.strftime('%B') %>, <%= link.date_accessed.year %> &lt;<%= link.url %>&gt;</p>
+<% if @links %>
+	<% @links.each do |link| %>
+	<p><i>"<%= link.article_title %>".</i> <%= link.website_title %>. Web. <%= link.date_accessed.strftime('%B') %>, <%= link.date_accessed.year %> &lt;<%= link.url %>&gt;</p>
+	<% end %>
+<% else %>
+	<p><i>"<%= @link.article_title %>".</i> <%= @link.website_title %>. Web. <%= @link.date_accessed.strftime('%B') %>, <%= @link.date_accessed.year %> &lt;<%= @link.url %>&gt;</p>
 <% end %>

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'docs/template' => "docs#template"
   get 'docs/links' => "docs#links"
   get 'docs/article' => "docs#article"
+  get 'docs/link-from-article' => "docs#link_from_article"
 
   get '/api/users/login' => "users#api_auth"
   get '/api/users/show' => "users#api_show"

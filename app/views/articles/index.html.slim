@@ -17,15 +17,15 @@ div.col-xs-12
 div.col-xs-12
 	- @articles.each do |article|
 		.row 
-			.col-xs-10.col-sm-11
+			.col-sm-11
 				h5 = link_to article_show_path(article)
 					= article.title
 				p  
 					=' truncate(article.content.first, :length => 200, :omission => "...") do
-					= link_to "More", article
-			.col-xs-2.col-sm-1
+					= link_to "More", article_show_path(article)
+			.col-sm-1
 				.pull-right.index-vote-count
-					.btn-group-vertical role="group" aria-label="..."
+					.btn-group-vertical.pull-right role="group" aria-label="..."
 						= render "voteButtons", :article => article
 .text-center
 		= render "pagination"

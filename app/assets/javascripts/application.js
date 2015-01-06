@@ -102,6 +102,44 @@ document.addEventListener('page:change', function() {
 	        }
 	    }
 	}
+	function removeLink(id) {
+		swal({   
+			title: "Are you sure?",
+			text: "You will not be able to recover this imaginary file!",   
+			type: "warning",   
+			showCancelButton: true,   
+			confirmButtonText: "Yes, delete it!",   
+			cancelButtonText: "No, cancel plx!",   
+			closeOnConfirm: false,   
+			closeOnCancel: false 
+		}, function(isConfirm){   
+			if (isConfirm) { 
+				$.ajax({
+				  type: "POST",
+				  url: '/links/' + id,
+				  data: {"_method": "delete"}
+				});    
+				swal({
+					title: "Deleted!",
+					text: "You will not be able to recover this imaginary file!",   
+					type: "success",      
+					showCancelButton: true,     
+					confirmButtonText: "Yes, delete it!",   
+					cancelButtonText: "No!",   
+					closeOnConfirm: true,   
+					closeOnCancel: true  
+				},  
+				function(isConfirm) {
+					if (!isConfirm) return;
+					location.reload();
+				});   
+			} 
+		});
+	}
+	$(".link-destroy").on("click", function(){
+		var link = $(this).data("link-id"); 
+		removeLink(link);
+	});
 
 	document.onmouseup = doSomethingWithSelectedText;
 	document.onkeyup = doSomethingWithSelectedText;
@@ -110,10 +148,22 @@ document.addEventListener('page:change', function() {
 		var links = $(this).data("links"); 
 		var url = "/docs/" + $(this).data("url") + ".docx";
 		var article = $(this).data("article");
-		console.log("YES");
-		$.fileDownload(url, {
-		  data: {"links": links, "article": article}
-		});
+		swal({
+			title: "Confirm",
+			text: "Please confirm that you want to download this word doc.",   
+			type: "info", 
+			showCancelButton: true,     
+			confirmButtonText: "Yes, download it!",   
+			cancelButtonText: "No!",   
+			closeOnConfirm: true,   
+			closeOnCancel: true   
+		},  
+		function(isConfirm) {
+			if (!isConfirm) return;
+			$.fileDownload(url, {
+			  data: {"links": links, "article": article}
+			});
+		}); 
 	});
 });
 document.addEventListener('page:fetch', function() {

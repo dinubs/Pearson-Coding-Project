@@ -7,11 +7,11 @@ h3
 	| Links
 p
 	| These are the citations you would use in your works cited
-p
-	a.btn.btn-sm.btn-info.doc-download href="#" data-links="all" data-url="links" title="Download all your links into a word doc"
-			= icon('file-word-o')
 
 - if @links.count > 0
+	p
+		a.btn.btn-sm.btn-info.doc-download href="#" data-links="all" data-url="links" title="Download all your links into a word doc"
+			= icon('file-word-o')
 	- @links.each_with_index do |link, index|
 		div.panel.panel-default
 			div.panel-heading
@@ -19,7 +19,7 @@ p
 				span.pull-right 
 					- text = icon('trash', '', class: 'trash')
 					/ = link_to text, link_path(link), :method => :put
-					= button_to link_path(link), :class => "btn btn-sm btn-danger", method: :delete do
+					button data-link-id=link.id class="link-destroy btn btn-sm btn-danger"
 						= text
 				span.pull-right
 					= link_to edit_link_path(link), :class => "btn btn-sm btn-info" do

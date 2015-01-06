@@ -1,5 +1,5 @@
 class DocsController < ApplicationController
-	before_filter :require_login, :except => [:article]
+	before_filter :require_login, :except => [:article, :link_from_article]
 
 	respond_to :docx
 
@@ -17,9 +17,20 @@ class DocsController < ApplicationController
 	def links
 		if params[:links] == "all"
 			@links = current_user.links
+		elsif params[:article]
+			article = Article.find(params[:article])
+			@links = Link.first
 		else
-			@links = Link.find(params[:links].to_i)
+			@link = Link.find(params[:links])
 		end
+		render docx: 'links', filename: "Your Links.docx"
+	end
+	def link_from_article
+		article = Article.find(params[:article])
+		@link = Link.new({:article_title => article.title,
+				 :website_title => "Cabretio",
+				 :date_accessed => Date.today,
+				 :url => "#{request.protocol}#{request.host_with_port}/#{article.id}" })
 		render docx: 'links', filename: "Your Links.docx"
 	end
 
