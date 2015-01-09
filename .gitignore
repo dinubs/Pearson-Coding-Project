@@ -31,6 +31,29 @@ Icon
 # Thumbnails
 ._*
 
+# Ignore bundler config.
+/.bundle
+/.vagrant
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore plaintext keys
+/config/deploy/keys/*.plaintext
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/config/artifacts/*
+
+.DS_Store
+secret_token.rb
+node_modules/*
+.sass-cache/
+
+.env
+
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
