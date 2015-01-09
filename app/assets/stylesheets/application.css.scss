@@ -121,7 +121,7 @@ h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 300; }
 .vertAlign {
   position: absolute;
   width: 100%;
-  margin-top: 15%;
+  margin-top: 10%;
   overflow: visible;
   & .home-form-wrap {
     position: relative;
@@ -144,6 +144,7 @@ h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 300; }
     float: left;
     margin-right: 5px;
     width: 100%;
+    color: #fff;
     transition: width .3s;
   }
   & input:focus {
@@ -169,6 +170,21 @@ h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 300; }
     margin-top: 1px;
     margin-left: 0px;
     opacity: 1;
+  }
+}
+
+
+.navbar {
+  transition: all .5s;
+  &.no-scroll {
+    background-color: rgba(255,255,255,0);
+    box-shadow: none;
+    & .navbar-brand, & li > a {
+      color: #fff;
+      &:hover {
+        color: darken(#fff, 10%);
+      }
+    }
   }
 }
   .vertAlign a {

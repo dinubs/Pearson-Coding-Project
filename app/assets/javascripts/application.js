@@ -165,6 +165,14 @@ document.addEventListener('page:change', function() {
 			});
 		}); 
 	});
+	$(document).on("scroll", function() {
+		var top = $(this).scrollTop();
+		if (top > 100) {
+			$(".navbar").removeClass("no-scroll");
+		} else {
+			$(".navbar").addClass("no-scroll");
+		}
+	})
 });
 document.addEventListener('page:fetch', function() {
 	if($(".home").length) {	
