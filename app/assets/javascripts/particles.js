@@ -18,7 +18,7 @@ function launchParticlesJS(tag_id, params){
       h: canvas_el.offsetHeight
     },
     particles: {
-      color: '#fff',
+      color: '#1abc9c',
       shape: 'circle',
       opacity: 1,
       size: 2.5,
@@ -27,7 +27,7 @@ function launchParticlesJS(tag_id, params){
       line_linked: {
         enable_auto: true,
         distance: 100,
-        color: '#fff',
+        color: '#1abc9c',
         opacity: 1,
         width: 1,
         condensed_mode: {
