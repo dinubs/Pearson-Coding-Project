@@ -21,17 +21,21 @@
     						.col-xs-10.col-sm-11
     							h3 = link_to article_show_path(article)
     								= article.title
+                                - pass = false
     							- article.content.each do |cont|
     								- if cont.downcase[" #{params[:search]} ".downcase]
     									p = cont
+                                        - pass = true
     									- break
+                                - if !pass
+                                    p = article.content.first
     						.col-xs-2.col-sm-1
     							.pull-right.index-vote-count
     								.btn-group-vertical role="group" aria-label="..."
     									= render "voteButtons", :article => article
 
-    .pagination-container
-     	= render "pagination"
+.pagination-container
+ 	= render "pagination"
 
-    javascript:
-      $(".content p, a ").highlight("#{params[:search]}", { wordsOnly: true });
+javascript:
+  $(".content p, a ").highlight("#{params[:search]}", { wordsOnly: true });

@@ -35,9 +35,6 @@ gem 'rest-client'
 
 gem 'ruby-readability'
 
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
-
 gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm', group: :production
