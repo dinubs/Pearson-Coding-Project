@@ -13,7 +13,7 @@ div.row
       = render "search"
       p 
         ' Want to see random articles?
-        = link_to "randomize", randomize_path, :class => "btn btn-xs btn-info"
+        = link_to "randomize", randomize_path, :class => "btn btn-sm btn-success"
 
       - @articles.each do |article|
         .row 

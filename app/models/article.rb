@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   validates :title, 
             :content,
             :link, 
@@ -6,6 +9,7 @@ class Article < ActiveRecord::Base
             
   validates :link, uniqueness: true
   acts_as_votable
+
        
   def self.search(search)
     if search

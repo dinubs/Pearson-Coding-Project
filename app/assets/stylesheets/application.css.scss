@@ -154,22 +154,16 @@ h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 300; }
   }
   & input[type=submit] {
     display: block;
-    left: 95%;
-    float: right;
+    left: 100%;
     width: 100px;
-    // margin-top: -37px;
-    margin-left: 600px;
     opacity: 0;
-    // visibility: hidden;
     transition: opacity .3s, left .4s;
   }
   & input:focus + input[type=submit] {
     display: block;
     left: 90%;
-    visibility: visible;
-    margin-top: 1px;
-    margin-left: 0px;
     opacity: 1;
+    transition: opacity .2s, left .3s;
   }
 }
 
