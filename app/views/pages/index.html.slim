@@ -1,19 +1,24 @@
 
 div#particles-js data-count=@node_count
-div.vertAlign.text-center
-	    h3.white
-	       	' Search over 
-			=' human_num(@count)
-	    	| Articles
-	    = render "articles/search"
-	    p.white
-	    	=' link_to "About Cabretio", about_path
-	    	' |
-			=' link_to "Search Articles", search_path
-			' |
-			=' link_to "All Articles", articles_path
-			' |
-			=' link_to "Feeling Stressed", relax_path
+div.vertAlign
+    h3.white.text-center
+       	' Search over 
+		=' human_num(@count)
+    	| Articles
+    = form_tag search_path, :class => "form-horizontal", :method => 'get' do
+  		.home-form-wrap
+	  		= text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Search all articles"
+	      	= submit_tag "Search", :name => nil, :class=>"btn btn-success btn-md home-submit"
+    .row
+	    .col-xs-12
+		    p.white.text-center
+		    	=' link_to "About Cabretio", about_path
+		    	' |
+				=' link_to "Search Articles", search_path
+				' |
+				=' link_to "All Articles", articles_path
+				' |
+				=' link_to "Feeling Stressed", relax_path
 
 javascript:
 	particlesJS('particles-js', {

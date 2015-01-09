@@ -17,7 +17,19 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+$brand-primary: darken(#2c3e50, 10%);
+$brand-success: #1abc9c;
+$brand-info: #3498DB;
+@import "bootswatch/paper/variables";
 
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/paper/bootswatch";
  * {
    box-sizing: border-box;
  }
@@ -109,7 +121,55 @@ h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 300; }
 .vertAlign {
   position: absolute;
   width: 100%;
-  margin-top: 25%;
+  margin-top: 15%;
+  overflow: visible;
+  & .home-form-wrap {
+    position: relative;
+    width: 100%;
+  }
+  & .row {
+    margin-top: 50px;
+  }
+  & input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 0 10px; 
+    box-sizing: border-box;
+    vertical-align:top;
+  }
+  & input[type=text] {
+    display: inline;
+    float: left;
+    margin-right: 5px;
+    width: 100%;
+    transition: width .25s linear 0;
+  }
+  & input:focus {
+    -webkit-box-shadow: inset 0 -2px 0 #1abc9c !important;
+    box-shadow: inset 0 -2px 0 #1abc9c !important;
+    width: 88%;
+  }
+  & input[type=submit] {
+    display: block;
+    left: 95%;
+    float: right;
+    width: 100px;
+    // margin-top: -37px;
+    margin-left: 600px;
+    opacity: 0;
+    // visibility: hidden;
+    transition: opacity .25s .1s, left .25s .1s;
+  }
+  & input:focus + input[type=submit] {
+    display: block;
+    left: 90%;
+    visibility: visible;
+    margin-top: 1px;
+    margin-left: 0px;
+    opacity: 1;
+  }
 }
   .vertAlign a {
     color: #3e3f3a;
@@ -248,12 +308,11 @@ small.subtitle {
   font-size: 1.4em;
 }
 
-.btn-success{
-  background-image: -webkit-radial-gradient(circle, #1abc9c 80%, #46d7b5 81%); 
-  background-image: -o-radial-gradient(circle, #1abc9c 80%, #46d7b5 81%);
-  background-image: radial-gradient(circle, #1abc9c 80%, #46d7b5 81%); 
-}
-
+// .btn-success{
+//   background-image: -webkit-radial-gradient(circle, #1abc9c 80%, #46d7b5 81%); 
+//   background-image: -o-radial-gradient(circle, #1abc9c 80%, #46d7b5 81%);
+//   background-image: radial-gradient(circle, #1abc9c 80%, #46d7b5 81%); 
+// }
 
 
 

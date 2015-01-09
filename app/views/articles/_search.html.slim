@@ -1,6 +1,6 @@
 div.row
 	= form_tag search_path, :class => "form-horizontal", :method => 'get' do
-	    div.col-sm-11
-	      = text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Search all articles"
-	    div.col-sm-1
-	      = submit_tag "Search", :name => nil, :class=>"btn btn-success btn-md"
+	    div.col-sm-10
+      		= text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Search all articles"
+	    div.col-sm-2
+	      = submit_tag "Search", :name => nil, :class=>"btn btn-success btn-md pull-right"
