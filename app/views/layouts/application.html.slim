@@ -23,10 +23,8 @@ html
 		      		ul.nav.navbar-nav
 		        		li
 							= link_to "Home", root_path
-		        		li
-		          			= link_to "Search", search_path
 		          		li
-		          			= link_to "All Articles", articles_path
+		          			= link_to "Articles", articles_path
 		          		li	
 		          			= link_to "About", about_path
 		          	- if current_user	
@@ -37,7 +35,7 @@ html
 		          				= link_to "Logout", logout_path
 		          		div.navbar-right
 		          			button.btn.btn-sm.btn-info.nav-link data-toggle="modal" data-target="#newLinkModal"
-		          				| Add Link
+		          				| Add Citation
 							div class="modal fade" id="newLinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 								div class="modal-dialog"
 									div class="modal-content"
@@ -46,7 +44,7 @@ html
 												span aria-hidden="true" &times;
 												span class="sr-only" close
 											h4 class="modal-title" id="myModalLabel"
-												| New Link
+												| New Citation
 										.modal-body
 											= simple_form_for(@link, html: { class: 'form-vertical' }) do |f|
 												.form-group

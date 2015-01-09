@@ -1,36 +1,37 @@
-div.row
-    div.col-xs-12
-      	h3 Search
-      	= render "search"
-div.row
-    div.col-xs-12
-        - if @count == 0 && params[:search]
+.wrap
+    div.row
+        div.col-xs-12
+          	h3 Search
+          	= render "search"
+    div.row
+        div.col-xs-12
+            - if @count == 0 && params[:search]
+                p 
+                    | Sorry we couldn't find any articles with that search query, please try a different search.
+            - elsif @count > 100
+                p 
+                    | There are a lot of results, we suggest refinings your query.
+    div.row
+        div.col-xs-12
             p 
-                | Sorry we couldn't find any articles with that search query, please try a different search.
-        - elsif @count > 100
-            p 
-                | There are a lot of results, we suggest refinings your query.
-div.row
-    div.col-xs-12
-        p 
-            ' Total results:
-            = human_num(@count)
-        - @articles.each do |article|
-					.row 
-						.col-xs-10.col-sm-11
-							h3 = link_to article_show_path(article)
-								= article.title
-							- article.content.each do |cont|
-								- if cont.downcase[" #{params[:search]} ".downcase]
-									p = cont
-									- break
-						.col-xs-2.col-sm-1
-							.pull-right.index-vote-count
-								.btn-group-vertical role="group" aria-label="..."
-									= render "voteButtons", :article => article
+                ' Total results:
+                = human_num(@count)
+            - @articles.each do |article|
+    					.row 
+    						.col-xs-10.col-sm-11
+    							h3 = link_to article_show_path(article)
+    								= article.title
+    							- article.content.each do |cont|
+    								- if cont.downcase[" #{params[:search]} ".downcase]
+    									p = cont
+    									- break
+    						.col-xs-2.col-sm-1
+    							.pull-right.index-vote-count
+    								.btn-group-vertical role="group" aria-label="..."
+    									= render "voteButtons", :article => article
 
-.pagination-container
- 	= render "pagination"
+    .pagination-container
+     	= render "pagination"
 
-javascript:
-  $(".content p, a ").highlight("#{params[:search]}", { wordsOnly: true });
+    javascript:
+      $(".content p, a ").highlight("#{params[:search]}", { wordsOnly: true });

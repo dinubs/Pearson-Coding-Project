@@ -1,66 +1,67 @@
-h1 = @article.title
-.row
-	.col-sm-10
-		small.subtitle 
-			' Original location:
-			= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link, :target => "_blank"
-	.col-sm-2
-		p
-			a.btn.btn-sm.btn-info.doc-download.pull-right href="#" data-article="#{@article.id}" data-url="article" title="Download this article into a word doc"
-				' download
-				= icon('file-word-o')
-hr
-- @article.content.each do |p|
-	p = p
+.wrap
+	h1 = @article.title
+	.row
+		.col-sm-10
+			small.subtitle 
+				' Original location:
+				= link_to truncate(@article.link, :length => 50, :omission => "..."), @article.link, :target => "_blank"
+		.col-sm-2
+			p
+				a.btn.btn-sm.btn-info.doc-download.pull-right href="#" data-article="#{@article.id}" data-url="article" title="Download this article into a word doc"
+					' download
+					= icon('file-word-o')
+	hr
+	- @article.content.each do |p|
+		p = p
 
-div.panel.panel-default
-			div.panel-heading
-				' Citation for Works Cited
-				span.pull-right 
-					.btn-group role="group" aria-label="..."
-						= render "voteButtons", :article => @article
-					- text = icon('save', '', class: 'save')
-					a.btn.btn-sm.btn-info href="#" data-toggle="modal" data-target="#newLinkModal"
-						= text
-					a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="link-from-article" title="Download this article into a word doc"
-						= icon('file-word-o', '', class: 'save')
-			div.panel-body
-				= citation(@article.title, "Cabretio", Date.today, "#{request.protocol}#{request.host_with_port}#{request.fullpath}")
-#disqus_thread
-noscript
-	| Please enable JavaScript to view the 
-	a href="http://disqus.com/?ref_noscript"
-		| comments powered by Disqus.
-.tip#highlightTooltip
-	.header
-		| Hey I'm a tooltip
-		button.close#closeTooltip type="button"
-			span aria-hidden="true" &times;
-			span class="sr-only" close
-	.body
-		| Try highlighting a word to get the definition of the word.
-javascript:
-	$( "p" )
-  	.mouseup(function() {
-  		console.log($.selection());
-  	});
-	var showModal = getCookie("showHighlightPopover");
-	if (showModal == "") {
-		$(".tip").show();
-	} else {
-		$(".tip").hide();
-	}
-	$("#closeTooltip").click(function() {
-		$(".tip").hide();
-		setCookie("showHighlightPopover", "no", 365);
-	});
+	div.panel.panel-default
+				div.panel-heading
+					' Citation for Works Cited
+					span.pull-right 
+						.btn-group role="group" aria-label="..."
+							= render "voteButtons", :article => @article
+						- text = icon('save', '', class: 'save')
+						a.btn.btn-sm.btn-info href="#" data-toggle="modal" data-target="#newLinkModal"
+							= text
+						a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="link-from-article" title="Download this article into a word doc"
+							= icon('file-word-o', '', class: 'save')
+				div.panel-body
+					= citation(@article.title, "Cabretio", Date.today, "#{request.protocol}#{request.host_with_port}#{request.fullpath}")
+	#disqus_thread
+	noscript
+		| Please enable JavaScript to view the 
+		a href="http://disqus.com/?ref_noscript"
+			| comments powered by Disqus.
+	.tip#highlightTooltip
+		.header
+			| Hey I'm a tooltip
+			button.close#closeTooltip type="button"
+				span aria-hidden="true" &times;
+				span class="sr-only" close
+		.body
+			| Try highlighting a word to get the definition of the word.
+	javascript:
+		$( "p" )
+	  	.mouseup(function() {
+	  		console.log($.selection());
+	  	});
+		var showModal = getCookie("showHighlightPopover");
+		if (showModal == "") {
+			$(".tip").show();
+		} else {
+			$(".tip").hide();
+		}
+		$("#closeTooltip").click(function() {
+			$(".tip").hide();
+			setCookie("showHighlightPopover", "no", 365);
+		});
 
-  	var disqus_shortname = 'cabretio'; // required: replace example with your forum shortname
+	  	var disqus_shortname = 'cabretio'; // required: replace example with your forum shortname
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-	
+	    /* * * DON'T EDIT BELOW THIS LINE * * */
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+		

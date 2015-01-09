@@ -1,23 +1,24 @@
-div.col-xs-12
-	h3 Search
-	= render "search"
-	p 
-		' Want to see the popular articles?
-		= link_to "popularize", articles_path, :class => "btn btn-xs btn-info"
-	
-div.col-xs-12
-	- @articles.each do |article|
-		.row 
-			.col-xs-10.col-sm-11
-				h5 = link_to article_show_path(article)
-					= article.title
-				p  = article.content.first
-			.col-xs-2.col-sm-1
-				.pull-right.index-vote-count
-					.btn-group-vertical role="group" aria-label="..."
-						= render "voteButtons", :article => article
+.wrap
+	div.col-xs-12
+		h3 Search
+		= render "search"
+		p 
+			' Want to see the popular articles?
+			= link_to "popularize", articles_path, :class => "btn btn-xs btn-info"
+		
+	div.col-xs-12
+		- @articles.each do |article|
+			.row 
+				.col-xs-10.col-sm-11
+					h5 = link_to article_show_path(article)
+						= article.title
+					p  = article.content.first
+				.col-xs-2.col-sm-1
+					.pull-right.index-vote-count
+						.btn-group-vertical role="group" aria-label="..."
+							= render "voteButtons", :article => article
 
-div.row
-	div.text-center
-		' Roll some more articles?
-		= link_to "randomize", randomize_path, :class => "btn btn-xs btn-info"
+	div.row
+		div.text-center
+			' Roll some more articles?
+			= link_to "randomize", randomize_path, :class => "btn btn-xs btn-info"
