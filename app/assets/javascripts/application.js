@@ -172,7 +172,16 @@ document.addEventListener('page:change', function() {
 		} else {
 			$(".navbar").addClass("no-scroll");
 		}
-	})
+	});
+	$(document).on("click", function(e) {
+		$(".fab").removeClass("active");
+		$(".pane").removeClass("active");
+	});
+	$(".fab").on("click", function(e) {
+		e.stopPropagation();
+		$(this).toggleClass("active");
+		$(".pane").toggleClass("active");
+	});
 });
 document.addEventListener('page:fetch', function() {
 	if($(".home").length) {	

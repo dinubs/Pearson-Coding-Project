@@ -33,52 +33,6 @@ html
 		          				= link_to current_user.email, me_path
 		          			li
 		          				= link_to "Logout", logout_path
-		          		div.navbar-right
-		          			button.btn.btn-sm.btn-success.nav-link data-toggle="modal" data-target="#newLinkModal"
-		          				| Add Citation
-							div class="modal fade" id="newLinkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-								div class="modal-dialog"
-									div class="modal-content"
-										.modal-header
-											button type="button" class="close" data-dismiss="modal"
-												span aria-hidden="true" &times;
-												span class="sr-only" close
-											h4 class="modal-title" id="myModalLabel"
-												| New Citation
-										.modal-body
-											= simple_form_for(@link, html: { class: 'form-vertical' }) do |f|
-												.form-group
-													= f.input :article_title, :placeholder => "Article Title", :label => "Article Title", :input_html => { :class => "form-control"}
-												.form-group
-													= f.input :website_title, :placeholder => "Website Title", :label => "Website Title", :input_html => { :class => "form-control" }
-												.form-group
-													= f.input :url, :placeholder => "Website URL", :label => "Website URL", :input_html => { :class => "form-control" }
-												.form-group
-													= f.input :date_accessed, :placeholder => "Date Accessed", :label => "Date Accessed", :input_html => { :class => "", :value => DateTime.now }
-												.form-group
-													= f.submit :class =>"btn btn-sm btn-success", :value => "Create New Link"
-							button.btn.btn-sm.btn-success.nav-link data-toggle="modal" data-target="#newArticle"
-									| Add Article
-							div class="modal fade" id="newArticle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-								div class="modal-dialog"
-									= form_tag :action => "create", :controller => "articles", :method => "post"
-										div class="modal-content"
-											div class="modal-header"
-												button type="button" class="close" data-dismiss="modal"
-													span aria-hidden="true" &times;
-													span class="sr-only" close
-												h4 class="modal-title" id="myModalLabel"
-													| Add an Article
-											.modal-body
-												= text_field_tag :link,"", :class => "form-control", :placeholder => "Link"
-												.checkbox
-													label	
-														= check_box_tag :create_link
-														| Add to your links
-											.modal-footer
-												button type="button" class="btn btn-danger" data-dismiss="modal"
-													| Cancel
-												= submit_tag "Create", :name => nil, :class=>"btn btn-success btn-md"
 					-else 
 						ul.nav.navbar-nav.navbar-right
 							li	
@@ -147,5 +101,14 @@ html
                 		<button type="button" class="close" data-dismiss="alert">×</button>
                 		= raw(msg)
         	= yield 
-					
+		-if current_user
+			.info-wrap
+			  .fab
+			    | +
+			  .pane
+			    .item href="#" data-toggle="modal" data-target="#newLinkModal"
+			      | Add Citation
+			    .item href="#" data-toggle="modal" data-target="#newArticle"
+			      | Add Article			
+			= render "extras/form"
 		= analytics_init if Rails.env.production?
