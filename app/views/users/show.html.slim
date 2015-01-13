@@ -6,7 +6,22 @@
 		p
 			a.btn.btn-sm.btn-info.doc-download href="#" data-links="all" data-url="links" title="Download all your links into a word doc"
 				= icon('file-word-o')
+		- @categories.each_with_index do |cat, index|
+			= link_to cat.category, "##{cat.category}"
+			span 
+				=  " | " unless index == @categories.count - 1 
+		- currentCat = @links.first.category
 		- @links.each_with_index do |link, index|
+			- if link.category != currentCat or index == 0
+				- currentCat = link.category
+				h5 id="#{currentCat}"
+					= currentCat
+					.pull-right
+						a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{link.category}" data-url="links-from-category" title="Download this article into a word doc"
+							' Download 
+							=' link.category
+							' links
+							= icon('file-word-o', '', class: 'save')
 			div.panel.panel-default
 				div.panel-heading
 					= link_to link.article_title, link.url
@@ -18,6 +33,8 @@
 					span.pull-right
 						= link_to edit_link_path(link), :class => "btn btn-sm btn-info" do
 							= icon('pencil', '', class: 'edit')
+						a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{link.id}" data-url="links" title="Download this article into a word doc"
+							= icon('file-word-o', '', class: 'save')
 				div.panel-body
 					= citation(link.article_title, link.website_title, link.date_accessed, link.url)
 	- else

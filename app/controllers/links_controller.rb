@@ -7,6 +7,7 @@ class LinksController < ApplicationController
 			redirect_to login_path 
 		end
 		@link = Link.new
+    @categories = current_user.links.select('category').uniq!
     @title = "New Link - "
 	end
 	def create
@@ -60,7 +61,8 @@ private
     	params.require(:link).permit(:article_title,
         	          				       :website_title,
                                    :date_accessed,
-                                   :url)
+                                   :url,
+                                   :category)
   	end
 
 end

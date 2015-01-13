@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224215932) do
+ActiveRecord::Schema.define(version: 20150112081916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "articles", force: true do |t|
     t.string  "title"
@@ -28,7 +29,6 @@ ActiveRecord::Schema.define(version: 20141224215932) do
     t.integer "cached_weighted_total",   default: 0
     t.float   "cached_weighted_average", default: 0.0
     t.string  "link"
-    t.string  "external_link",           default: ""
   end
 
   add_index "articles", ["cached_votes_down"], name: "index_articles_on_cached_votes_down", using: :btree
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20141224215932) do
   add_index "articles", ["cached_weighted_score"], name: "index_articles_on_cached_weighted_score", using: :btree
   add_index "articles", ["cached_weighted_total"], name: "index_articles_on_cached_weighted_total", using: :btree
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "links", force: true do |t|
     t.string   "article_title"
     t.string   "website_title"
@@ -47,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141224215932) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   add_index "links", ["user_id", "created_at"], name: "index_links_on_user_id_and_created_at", using: :btree

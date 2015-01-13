@@ -127,7 +127,7 @@ h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 300; }
     width: 100%;
   }
   & .row {
-    margin-top: 50px;
+    margin-top: 60px;
   }
   & input {
     position: absolute;
@@ -287,10 +287,7 @@ span .btn:hover {
 
 .nav-link {
   margin-top: 19px;
-  margin-left: 5px;
-}
-.nav-link:hover {
-  // margin-top: 16px;
+  margin-left: 20px;
 }
 
 .index-vote-count {
@@ -405,4 +402,11 @@ small.subtitle {
       color: #4285f4;
     }
 
+.panel {
+  box-shadow: none;
+  border: none;
 
+  & .panel-heading {
+    background-color: transparent;
+  }
+}

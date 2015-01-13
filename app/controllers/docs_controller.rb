@@ -34,6 +34,11 @@ class DocsController < ApplicationController
 		render docx: 'links', filename: "Your Links.docx"
 	end
 
+	def link_from_cat
+		@links = current_user.links.where(:category => params[:links])
+		render docx: 'links', filename: "Your Links.docx"
+	end
+
 	def article
 		@article = Article.find(params[:article].to_i)
 		render docx: 'article', filename: "#{@article.title}.docx"

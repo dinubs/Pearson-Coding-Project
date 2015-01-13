@@ -182,6 +182,17 @@ document.addEventListener('page:change', function() {
 		$(this).toggleClass("active");
 		$(".pane").toggleClass("active");
 	});
+	$('a[href^="#"]').bind('click.smoothscroll',function (e) {
+        e.preventDefault();
+        var target = this.hash,
+        $target = $(target);
+
+        $('html, body').stop().animate( {
+            'scrollTop': $target.offset().top-100
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        } );
+    } );
 });
 document.addEventListener('page:fetch', function() {
 	if($(".home").length) {	

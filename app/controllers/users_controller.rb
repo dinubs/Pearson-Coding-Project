@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     		@user = current_user
     		@links = current_user.links.order("created_at DESC")
     		@title = "Your Page - "
+        @categories = current_user.links.select('category').uniq!
     	else
     		flash[:danger] = "You need to be logged in to see that page!"
     		redirect_to login_path
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
         return
       end
       user = User.find_by_email(params[:email])
-      render :json => user.links.order("created_at DESC")
+      render :json => user.links.order("category")
     end
 
     def api_new

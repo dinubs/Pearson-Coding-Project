@@ -25,8 +25,12 @@ class ArticlesController < ApplicationController
 		@title = @article.title
     @link = Link.new()
     @link.article_title = @article.title
-    @link.website_title = @article.link.scan(/\/([^"]*)\./)[0][0]
-    @link.url = @article.link
+    if @article.link.scan(/\/([^"]*)\./)[0][0].include? "www."
+      @link.website_title = "Cabretio"
+    else
+      @link.website_title = @article.link.scan(/\/([^"]*)\./)[0][0]
+    end
+    @link.url = "#{request.protocol}#{request.host_with_port}/#{@article.id}"
     respond_to do |format|
       format.json  { render :json => @article } # don't do msg.to_json
       format.html 

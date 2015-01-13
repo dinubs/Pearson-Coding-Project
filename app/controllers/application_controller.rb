@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     else
       @user = current_user
       @link = Link.new
+      @categories = current_user.links.select('category').uniq!
     end
   end
 

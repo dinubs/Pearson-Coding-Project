@@ -36,10 +36,12 @@ Rails.application.routes.draw do
   get 'docs/links' => "docs#links"
   get 'docs/article' => "docs#article"
   get 'docs/link-from-article' => "docs#link_from_article"
+  get 'docs/links-from-category' => "docs#link_from_cat"
 
   get '/api/users/login' => "users#api_auth"
   get '/api/users/show' => "users#api_show"
   get '/api/users/new' => "users#api_new"
+  get '/api/categories' => "apis#categories"
 
   get '/random' => "articles#random"
   get '/:id' => "articles#show", :as => "article_show"

@@ -4,6 +4,7 @@ class Link < ActiveRecord::Base
   validates :article_title,
    			:website_title,
    			:date_accessed,
-   			:url, 
+   			:url,
+   			:category,
    			:presence => true
 end
