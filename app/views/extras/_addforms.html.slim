@@ -10,10 +10,10 @@ div class="modal fade" id="newArticle" tabindex="-1" role="dialog" aria-labelled
 						| Add an Article
 				.modal-body
 					= text_field_tag :link,"", :class => "form-control", :placeholder => "Link"
-					.checkbox
-						label	
-							= check_box_tag :create_link
-							| Add to your links
+					/ .checkbox
+					/ 	label	
+					/ 		= check_box_tag :create_link
+					/ 		| Add to your links
 				.modal-footer
 					button type="button" class="btn btn-danger" data-dismiss="modal"
 						| Cancel
@@ -40,7 +40,7 @@ div class="modal fade" id="newLinkModal" tabindex="-1" role="dialog" aria-labell
 					.form-group
 						= f.input :date_accessed, :placeholder => "Date Accessed", :label => "Date Accessed", :input_html => { :class => "", :value => DateTime.now }
 					.form-group
-						= f.submit :class =>"btn btn-sm btn-success", :value => "Create New Link"
+						= f.submit :class =>"btn btn-sm btn-success", :value => "Create Citation"
 javascript:
 	$('.autosuggest').remoteList({
 	    minLength: 0,

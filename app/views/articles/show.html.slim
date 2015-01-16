@@ -23,7 +23,7 @@
 						- text = icon('save', '', class: 'save')
 						a.btn.btn-sm.btn-info href="#" data-toggle="modal" data-target="#newLinkModal"
 							= text
-						a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="link-from-article" title="Download this article into a word doc"
+						a.btn.btn-sm.btn-info.doc-download href="#" data-article="#{@article.id}" data-url="link-from-article" title="Download this citation into a word doc"
 							= icon('file-word-o', '', class: 'save')
 				div.panel-body
 					= citation(@article.title, "Cabretio", Date.today, "#{request.protocol}#{request.host_with_port}#{request.fullpath}")

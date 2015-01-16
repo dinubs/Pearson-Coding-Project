@@ -122,15 +122,11 @@ document.addEventListener('page:change', function() {
 				swal({
 					title: "Deleted!",
 					text: "You will not be able to recover this imaginary file!",   
-					type: "success",      
-					showCancelButton: true,     
-					confirmButtonText: "Yes, delete it!",   
-					cancelButtonText: "No!",   
-					closeOnConfirm: true,   
-					closeOnCancel: true  
+					type: "success",           
+					confirmButtonText: "Ok!",   
+					closeOnConfirm: true
 				},  
 				function(isConfirm) {
-					if (!isConfirm) return;
 					location.reload();
 				});   
 			} 
@@ -159,6 +155,7 @@ document.addEventListener('page:change', function() {
 		var links = $(this).data("links"); 
 		var url = "/docs/" + $(this).data("url") + ".docx";
 		var article = $(this).data("article");
+		console.log("Yes");
 		swal({
 			title: "Confirm",
 			text: "Please confirm that you want to download this word doc.",   
