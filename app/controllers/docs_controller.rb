@@ -44,6 +44,27 @@ class DocsController < ApplicationController
 		@article = Article.find(params[:article].to_i)
 		render docx: 'article', filename: "#{@article.title}.docx"
 	end
+	
+	def doc_from_page
+	  begin  
+      page = Nokogiri::HTML(open(params[:page]))
+      source = open(params[:page]).read
+    rescue => e
+      return
+    end
+    content = Readability::Document.new(source).content
+    pTags = Nokogiri::HTML(content).css("p")
+    title = page.css("h1")[0].text.strip
+    tags = []
+    pTags.each do |tag| 
+      tags.push(tag.text.strip)
+    end
+    @article = Article.new
+    @article.title = title
+    @article.content = tags
+    @article.link = params[:page]
+	  render docx: 'article', filename: "#{@article.title}.docx"
+	end
 
 private 
 

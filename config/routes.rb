@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'docs/article' => "docs#article"
   get 'docs/link-from-article' => "docs#link_from_article"
   get 'docs/links-from-category' => "docs#link_from_cat"
+  get 'docs/page' => "docs#doc_from_page"
 
   get '/api/users/login' => "users#api_auth"
   get '/api/users/show' => "users#api_show"
