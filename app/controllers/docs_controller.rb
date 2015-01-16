@@ -1,5 +1,5 @@
 class DocsController < ApplicationController
-	before_filter :require_login, :except => [:article, :link_from_article]
+	before_filter :require_login, :except => [:article, :link_from_article, :doc_from_page]
 
 	respond_to :docx
 
