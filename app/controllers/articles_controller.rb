@@ -89,23 +89,23 @@ class ArticlesController < ApplicationController
     @article.title = title
     @article.content = tags
     @article.link = permitted_params
-    if params[:create_link] == "1"
-      puts "YES"
-      @user = current_user
-      link = @article.link.scan(/\.([^"]*)\./)
-      if link.empty?
-        link = @article.link.scan(/\/([^"]*)\./)
-      end
-      puts link.count
-      @link = @user.links.new(:website_title => link[0][0],
-                              :article_title => @article.title,
-                              :date_accessed => DateTime.now(),
-                              :user => @user,
-                              :url => @article.link)
-      if @link.save!
-        flash[:info] = "psst, we also added this to your links :)"
-      end
-    end
+    # if params[:create_link] == "1"
+    #   puts "YES"
+    #   @user = current_user
+    #   link = @article.link.scan(/\.([^"]*)\./)
+    #   if link.empty?
+    #     link = @article.link.scan(/\/([^"]*)\./)
+    #   end
+    #   puts link.count
+    #   @link = @user.links.new(:website_title => link[0][0],
+    #                           :article_title => @article.title,
+    #                           :date_accessed => DateTime.now(),
+    #                           :user => @user,
+    #                           :url => @article.link)
+    #   if @link.save!
+    #     flash[:info] = "psst, we also added this to your links :)"
+    #   end
+    # end
     if @article.save
       flash[:success] = "Awesome, you've created a new article!"
       redirect_to article_path(@article)
