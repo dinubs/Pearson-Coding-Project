@@ -7,7 +7,7 @@
 			a.btn.btn-sm.btn-info.doc-download href="#" data-links="all" data-url="links" title="Download all your links into a word doc"
 				= icon('file-word-o')
 		- @categories.each_with_index do |cat, index|
-			= link_to cat.category, "##{cat.category}"
+			= link_to cat.category, "##{cat.category}", :class => "scroll"
 			span 
 				=  " | " unless index == @categories.count - 1 
 		- currentCat = @links.first.category

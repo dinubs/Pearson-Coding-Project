@@ -140,7 +140,7 @@ document.addEventListener('page:change', function() {
 		var link = $(this).data("link-id"); 
 		removeLink(link);
 	});
-	$('a[href^="#"]').bind('click.smoothscroll',function (e) {
+	$('.scroll').bind('click.smoothscroll',function (e) {
         e.preventDefault();
         var target = this.hash,
         $target = $(target);
