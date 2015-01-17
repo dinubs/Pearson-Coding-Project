@@ -8,6 +8,8 @@ class PagesController < ApplicationController
    end
    def about
      @title = "About Cabretio - "
+     @ft_count = Article.from_ft
+     @count = Article.count
    end
    def relax
    		@body = "relax"

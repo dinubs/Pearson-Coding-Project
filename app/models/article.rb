@@ -26,5 +26,8 @@ class Article < ActiveRecord::Base
     else
       none
     end
-  end            
+  end   
+  def self.from_ft
+    where("link LIKE '%ft.com%'").count
+  end         
 end

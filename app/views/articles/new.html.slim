@@ -1,0 +1,6 @@
+.wrap
+	h3
+		| Add an Article
+	= form_tag :action => "create", :controller => "articles", :method => "post"
+		= text_field_tag :link,"", :class => "form-control", :placeholder => "Link"
+		= submit_tag "Create", :name => nil, :class=>"btn btn-success btn-md"

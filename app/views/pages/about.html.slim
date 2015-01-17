@@ -1,17 +1,22 @@
 .wrap
   h1 
       | About Cabretio
-      
-  p 
-    ' The Cabretio is a research platform created for students to provide resources to students to help them in their learning endeavors. The base system includes 1,500 articles provided by 
+
+  p
+    | Cabretio is a research platform created to provide resources for students  in their learning endeavors. 
+  p
+    | The base system includes 
+    =' @ft_count
+    | articles provided by 
     = link_to "Financial Times", "http://www.ft.com"
-    ' . In the future we hope to allow students to host any articles in our system.
-    
-  p 
-    |	Currently Cabretio lets students read over 1,500 articles, save any of these articles to view later, along with being able to cite the articles in their research bibliographies. These are the basics to what a student needs to be able to research, but it's not enough. For students to truly succeed the tools they have need to be the best, that's what the Cabretio is here for. 
-    
-  p 
-    | We have big goals, we can't share all of them with you right now, but they are on the horizon, and they will be here soon.
-    
-  .text-center 
-    | :)
+    | . In the future we hope to allow students to host any articles in our system.
+  p
+    | Currently, Cabretio lets students read over 
+    =' @count
+    | articles, save these articles to view later, and cite the articles in their research bibliographies. 
+  p
+    | These are the basics for student research needs, but it's not enough.
+  p
+    | For students to truly succeed, the tools they use need to be the best; that's what the Cabretio is here for.
+  p
+    | We have big goals; we can't share all of them with you right now, but they are on the horizon, and they will be here soon.
