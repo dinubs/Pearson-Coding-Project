@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="css/the.css">
 </head>
 
@@ -20,76 +20,39 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">FT Researcher</a>
-      </div>
-      <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#about">About</a>
-          </li>
-          <li><a href="#plan">Plan</a></li>
-          <li><a href="#wireframe">Wireframe</a>
-          </li>
-        </ul>
+        <a class="navbar-brand" href="http://cabretio.herokuapp.com">Cabretio</a>
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>The FT Researcher<br><small>Gavin Dinubilo</small></h1>
-      <a href="#about" class="btn btn-success">Get Started</a>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <h1 id="about">About</h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="wrap">
+        <h1>Cabretio</h1>
+        <p>This project started off as a way to make it easier to read articles from www.ft.com and has since evolved into being a full research studio for students. </p>
         <p>
-          This project is for the Pearson Coding Project. The main idea is to create something using the Pearson APIs to enhance student learning. I plan on using Ruby on Rails to create this, seeing as it is the easiest to implement a database, and add a lot to the overall site.
+          Formerly known as The FT Researcher, <a href="http://cabretio.herokuapp.com">Cabretio</a> is now a full research studio for students, with 2,529 articles on the site to start off, and 2,522 of those articles coming from <a href="www.ft.com">www.ft.com</a>. Once a user signs up they can add articles from almost any website to grow the system even more. I've created some innovative technology for students when browsing the website, these including a way to save your works cited citations onto Cabretio, a way to download any article on the website into a word document, and last but not least dictionary that will define any word on the website.
         </p>
-        <p>
-          This specific project will implement the Financial Times API, and the Dictionary API. The app that I plan to create is to be used for research for student projects, or just overall learning, after looking at the <a href="http://www.ft.com">Financial Times</a> website, and seeing how difficult it is to navigate, but seeing how helpful the content could be for students to use, in their projects, I decided to create an app that will allow students to do just that.
-        </p>
-        <p>
-          As a student I know what is like to find resources for research, especially current ones, the articles that I looked at on <a href="http://www.ft.com">Financial Times</a> all were extremely interesting and I feel that this information could be implemented in a better way, which I plan to do.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-x2-12 col-sm-8 col-sm-offset-2">
-        <h1 id="plan">Plan</h1>
-        <p>
-          My plan for creating this project is to first implement a way to view the text from all 40,000 articles provided by <a href="http://www.ft.com">Financial Times</a> by adding the id into my own database for faster app speed, otherwise, I would be making multiple requests, and I can provide more options to students to find things this way. 
-        </p>
-        <p>
-          Second I want to implement a way to use the Pearson Dictionary API so that when students are reading through an article and come across a word that they don't understand or don't know, they can simply highlight the word and the app will provide a definition for them, or a list of synonyms. This way students can understand what they are reading about without having to pull out a dictionary, or go to an external website. Along with the Dictionary API I plan to implement a way for to students to cite the website on the page. 
-        </p>       
-        <p>
-          Third I plan on implementing a user system so that students can either upvote or downvote an article, the more upvotes a post has the more likely it is to be found on the front page. This is to showcase popular articles that otherwise would go unlooked if users didn't vote on them. 
-        </p>
-      </div>
-    </div> 
-    <div class="row">
-      <div class="col-x2-12 col-sm-8 col-sm-offset-2">
-        <h1 id="wireframe">Wireframe</h1>
-        <ul>
-          <li>Landing Page 
-            <ul>
-              <li>Ability to search for articles.</li>  
-              <li>View popular articles.</li>
-              <li>View articles that they have saved as a user.</li>
-            </ul>
-          </li>
-          <li>Article view page
-            <ul>
-              <li>Create a viewing pleasure much like <a href="http://www.medium.com">Medium</a>.</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>   
-  </div>
+        <h3 id="citations">Citations</h3>
+        <p>The biggest problem that I consistently run into when writing a research paper is the works cited page, so to solve this I built a way to let students save any web page into a citation, by providing the bare minimals to create an MLA citation. These citations are then categorized into which ever way the student wants (e.g. student can save all english paper citations in one spot, and all history citations into one spot). </p>
+        <p>Being able to save a citation is one thing that other research databases don't allow you to do, yes you can download them, but being able to save them from a school computer, then being able to see them at home is something different.</p>
+        <h3 id="word-documents">Word Documents</h3>
+<p>A word document is one thing that every student knows, and knows extremely well by college. I've used some very interesting technology to allow students to be able to download any article from Cabretio, along with being able to download all citations that a student creates, making a works cited one of the easiest things to do.</p>
+<p>Word documents, make it extremely easy to download an article in whichever style the student wants, and then being able to annotate and highlight the article without having website styles getting in the way.</p>
+<h3 id="dictionary">Dictionary</h3>
+<p>Last but not least, is the API that I implemented into Cabretio, a dictionary is one of the most important things any student can have, but the problem is that it's extremely difficult to get a definition easily without having to leave their current page. I solved this by allowing users to be able to simply highlight whichever word they want, and instantly the definition of the highlighted word comes up, allowing you to easily continue reading the article, and now knowing what that word means.</p>
+<p>Along with the dictionary I've wrote a background script to save <a href="www.ft.com">www.ft.com</a> articles into Cabretio's database, so if I ever wanted to add more I easily could.</p>
+<h3 id="future">Future</h3>
+<p>Just because the competition is coming to an end, does not mean that I'm finished working on Cabretio, I feel that I can grow Cabretio to actually be something. I have extra things that I'm working on, that I don't have entirely finished right now, but they'll be out soon. I'm working on an iPhone app to go along with Cabretio, to allow you to read articles on you iOS device along with everything else the web site can do. Also a Google Chrome Extension to allow you to save any page as a word document, or get the citation right there, without having to visit Cabretio at all (although you still should, because it's awesome and on the website you can do more than the Chrome Extension.</p>
+<p>It's been a long couple of months working on this web site, but it's been extremely enjoyable, and I'm glad I was able to be a part of this competition.</p>
+<p>You can view Cabretio at <a href="http://cabretio.herokuapp.com">http://cabretio.herokuapp.com </a></p>
+<p>I've setup a test account for you:</p>
+<ul>
+<li>Email: cabretiotest@gmail.com</li>
+<li>password: password</li>
+</ul>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="js/the.js"></script>
+      </div>
+  </div>
 </body>
 
 </html>
