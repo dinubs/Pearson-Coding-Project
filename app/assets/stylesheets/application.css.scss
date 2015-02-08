@@ -32,6 +32,12 @@ $brand-info: #3498DB;
  * {
    box-sizing: border-box;
  }
+ html.turbolinks-progress-bar::before {
+  background-color: #1abc9c !important;
+  height: 3px !important;
+  bottom: 0;
+}
+
 
 body { margin-top: 70px; padding-bottom: 70px;padding-top: 60px; font-size: 15px; 
    background-color: #2c3e50;}

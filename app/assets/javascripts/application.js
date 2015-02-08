@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
@@ -19,7 +20,8 @@ $.fn.exists = function(){
 }
 
 document.addEventListener('page:change', function() {
-	Turbolinks.pagesCached(0);
+  Turbolinks.enableProgressBar();
+	//Turbolinks.pagesCached(0);
 	if($(".home").length) {
 		document.getElementsByClassName("home")[0].className += ' animated fadeIn';
 	}
